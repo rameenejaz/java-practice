@@ -10,7 +10,7 @@ public class divisibility2 {
         int number2=input.nextInt();
         System.out.print("The numbers divisible by 3 and 11 (or 7):");
         for (int i=number1; i<=number2; i++) {
-            if ((i%3==0 && i%11==0) ||i%7==0 ) {  
+            if ((i%3==0 && i%11==0) ) {  
                     System.out.print(i+" ");
             }
         }
