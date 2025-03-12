@@ -15,7 +15,6 @@ public class circumference2 {
         System.out.printf("\nThe circumference is: %.2f\n", findCircumference());
     }
     public static void main(String[] args) {
-        circumference2 object= new circumference2();
         Scanner input= new Scanner(System.in);
         //default constructor
         circumference2 defaultCircle= new circumference2();
