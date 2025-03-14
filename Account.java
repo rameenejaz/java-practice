@@ -1,3 +1,4 @@
+//lab task 2
 import java.util.Scanner;
 public class Account {
    private double balance;
@@ -19,7 +20,7 @@ public class Account {
         System.out.printf("Deposited:%.2f\n", amount);
     }
     else {
-        System.out.printf("Error! Deposited amount must be positive");
+        System.out.printf("Error!! Deposited amount must be positive");
     }
    }
    public void withdraw(double amount) {
@@ -44,7 +45,7 @@ public class Account {
         System.out.printf("Enter initial balance:");
         double inputBalance=input.nextDouble();
         Account userAccount=new Account(inputBalance);
-        System.out.print("Do you want to withdraw or deposit? (W/D)");
+        System.out.print("Do you want to withdraw or deposit?: (W/D)");
         String choice=input.next();
         if (choice.equalsIgnoreCase("D")) {
             System.out.printf("\nEnter amount to deposit:");
