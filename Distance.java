@@ -10,12 +10,6 @@ public class Distance {
         feet=inputFeet;
         inches=inputInches;
     }
-    // public void getFeet(double inputFeet) {
-    //     System.out.printf("\nEnter length in feet: %.2f\n", inputFeet);
-    // }
-    // public void getInches(double inputInches) {
-    //     System.out.printf("\nEnter length in inches: %.2f\n", inputInches);
-    // }
     public void display() {
         System.out.printf("\nThe distance in feet is: %.2f", feet);
         System.out.printf("\nThe distance in inches is: %.2f" ,inches);
@@ -25,7 +19,6 @@ public class Distance {
         Distance measurement1=new Distance();
         System.out.println("The default measurements!\n");
         measurement1.display();
-        // char ch='w';
         System.out.printf("\nEnter the feet:");
         double Infeet=input.nextDouble();
         System.out.printf("\nEnter the inches: ");
