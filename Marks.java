@@ -30,7 +30,7 @@ public class Marks {
         System.out.println("\nThe default values: \n");
         Marks objectMarks=new Marks();
         objectMarks.display();
-        System.out.println("Adding custom marks!");
+        System.out.println("Adding custom marks:");
         System.out.println("Enter marks 1:");
         int marks1=input.nextInt();
         System.out.println("Enter marks 2:");
