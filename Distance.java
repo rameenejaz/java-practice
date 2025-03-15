@@ -13,8 +13,8 @@ public class Distance {
     public void getFeet(double inputFeet) {
         System.out.printf("\nEnter length in feet: %.2f\n", inputFeet);
     }
-    public void getFeet(double inputInches) {
-        System.out.printf("\nEnter length in feet: %.2f\n", inputInches);
+    public void getInches(double inputInches) {
+        System.out.printf("\nEnter length in inches: %.2f\n", inputInches);
     }
     public void display() {
         System.out.printf("\nThe default distance in feet is:", feet);
@@ -23,7 +23,7 @@ public class Distance {
     public static void main(String[] args) {
         Scanner input= new Scanner(System.in);
         Distance measurement=new Distance();
-       measurement.display();
+        measurement.display();
 
 
     }
