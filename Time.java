@@ -33,11 +33,11 @@ public class Time {
     }
     public void display() {
         // System.out.println("\nTime:\n");
-        System.out.printf("Time:, %02d:%02d:%02d", hours,seconds,minutes);
+        System.out.printf("Time: %02d:%02d:%02d", hours,seconds,minutes);
     }
     public static void main(String[] args) {
         Scanner input=new Scanner(System.in);
-        System.out.println("\nDefault time:\n");
+        System.out.println("\nThe Default time:\n");
         Time calculateTime= new Time();
         calculateTime.display();
         System.out.println("\nEnter hours:");
