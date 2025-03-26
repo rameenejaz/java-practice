@@ -31,7 +31,6 @@ class Person {
         name = name1;
         dob = new DOB(d.day, d.month, d.year);
     }
-
     public void display() {
         System.out.println("Name: " + name);
         System.out.println("ID: " + ID);
@@ -43,7 +42,6 @@ class Student {
     private String name;
     private DOB dob;
     private String program;
-
     public Student() {
         ID = 0;
         name = "";
@@ -114,7 +112,7 @@ public class SchoolSystem {
                 case 1:
                     System.out.println("Enter Teacher ID: ");
                     int tID = scanner.nextInt();
-                    scanner.nextLine(); // Consume newline
+                    scanner.nextLine(); 
 
                     System.out.println("Enter Teacher Name: ");
                     String tName = scanner.nextLine();
@@ -134,7 +132,7 @@ public class SchoolSystem {
                 case 2:
                     System.out.println("Enter Student ID: ");
                     int sID = scanner.nextInt();
-                    scanner.nextLine(); // Consume newline
+                    scanner.nextLine(); 
 
                     System.out.println("Enter Student Name: ");
                     String sName = scanner.nextLine();
@@ -144,22 +142,20 @@ public class SchoolSystem {
                     int sMonth = scanner.nextInt();
                     int sYear = scanner.nextInt();
 
-                    scanner.nextLine(); // Consume newline
+                    scanner.nextLine(); 
                     System.out.println("Enter Program: ");
                     String sProgram = scanner.nextLine();
 
                     student = new Student(sID, sName, new DOB(sDay, sMonth, sYear), sProgram);
                     System.out.println("Student data saved successfully.");
                     break;
-
                 case 3:
-                    if (teacher != null) {
+                    if (teacher = null) {
                         teacher.display();
                     } else {
                         System.out.println("No teacher data available.");
                     }
                     break;
-
                 case 4:
                     if (student != null) {
                         student.display();
@@ -167,12 +163,10 @@ public class SchoolSystem {
                         System.out.println("No student data available.");
                     }
                     break;
-
                 case 0:
                     System.out.println("Exiting program.");
                     scanner.close();
                     return;
-
                 default:
                     System.out.println("Invalid option. Please try again.");
             }
