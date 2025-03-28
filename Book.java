@@ -11,9 +11,9 @@ public class Book {
     public boolean isBorrowed() {
         return isBorrowed;
     }
-    public Book(String title1, String title2 ) {
+    public Book(String title1, String author) {
         this.title=title1;
-        this.title=title2;
+        this.author=author;
     }
     public void borrowBook() {
         if(!isBorrowed) {

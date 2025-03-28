@@ -21,10 +21,8 @@ public class Library {
                 books[i].borrowBook();
                 return;
             }
-            else {
-                System.out.println("Book not available for borrowing.");
-            }
         }
+            System.out.println("Book not available for borrowing.");
     }
     public void returnBook(String title, User user) {
         for (int i=0; i<counter; i++) {
@@ -32,13 +30,11 @@ public class Library {
                 books[i].returnBook();
                 return;
             }
-            else {
-                System.out.println("No book with this title to borrowed");
-            }
         }
+        System.out.println("No book with this title to borrowed");
     }
     public void displayLibrary() {
-        System.out.println("\n📚 Library Books 📚");
+        System.out.println("---- Library Books ----");
         if (counter == 0) {
             System.out.println("No books available in the library.");
         } 
