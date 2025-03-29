@@ -61,10 +61,13 @@ public class Student1 {
             System.out.println(name + " did not register any courses");
         }
         else {
-            System.out.println(name + " registered in rhe following courses:");
+            System.out.println(name + " registered in the following courses:");
+            System.out.println("\n----------------------------------\n");
             for (int i=0; i<enrolledCount; i++) {
-                System.out.print(enrolledCourses[i] + "-");
+                System.out.print(enrolledCourses[i] + " ");
+                System.out.println();
             }
+            System.out.println("\n---------------------------------\n");
         }
     }
     public void displayMenu() {
@@ -102,16 +105,14 @@ public class Student1 {
                 break;
 
                 case 2:
-                System.out.println("Enter name of the course you want to drop:");
+                System.out.print("\nEnter name of the course you want to drop:");
                 input.nextLine();
                 String inputCourseDropName=input.nextLine();
                 students.dropCourse(inputCourseDropName);
-                System.out.println("\nDONE COURSE DROPPED");
                 break;
 
                 case 3:
                 students.displayCourses();
-                System.out.println("\nDONE COURSE DISPLAYED");
                 break;
 
                 case 0:
