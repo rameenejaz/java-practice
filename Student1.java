@@ -61,18 +61,18 @@ public class Student1 {
             System.out.println(name + " did not register any courses");
         }
         else {
-            System.out.println(name + " registered in the following courses:");
             System.out.println("\n----------------------------------\n");
+            System.out.println(name + " registered in the following courses:");
             for (int i=0; i<enrolledCount; i++) {
                 System.out.print(enrolledCourses[i] + " ");
                 System.out.println();
             }
-            System.out.println("\n---------------------------------\n");
         }
+        System.out.println("\n---------------------------------\n");
     }
     public void displayMenu() {
-        System.out.println("--------------------------------------");
         System.out.println("      COURSE ENROLLMENT SYSTEM        ");
+        System.out.println("--------------------------------------");
         System.out.println("\n1. To add a course\n");
         System.out.println("\n2. To drop a course\n");
         System.out.println("\n3. To display list of courses\n");
