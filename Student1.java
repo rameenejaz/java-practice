@@ -71,7 +71,7 @@ public class Student1 {
         System.out.println("\n---------------------------------\n");
     }
     public void displayMenu() {
-        System.out.println("      COURSE ENROLLMENT SYSTEM        ");
+        System.out.println("      *COURSE ENROLLMENT SYSTEM*        ");
         System.out.println("--------------------------------------");
         System.out.println("\n1. To add a course\n");
         System.out.println("\n2. To drop a course\n");
@@ -80,7 +80,6 @@ public class Student1 {
         System.out.print("\nChoose from the following options (1-3) or 0 to exit:");
     }
     public static void main(String[] args) {
-        // Student1 student=new Student1();
         Scanner input=new Scanner(System.in);
         int option=-99;
         int ID=0;
@@ -91,7 +90,6 @@ public class Student1 {
             System.out.print("Enter your name:");
             name1=input.nextLine();
             Student1 students=new Student1(ID, name1,0);
-            // student(ID, name1);
         while (option!=0) {
             students.displayMenu();
             option=input.nextInt();
