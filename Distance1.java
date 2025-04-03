@@ -9,8 +9,25 @@ public class Distance1 {
         this.feet=feet;
         this.inches=inches;
     }
-    public void getInches() {
-        
+    public int getFeet() {
+        return feet;
+    }
+    public int getInches() {
+        return inches;
+    }
+    public void setFeet(int feet) {
+        this.feet=feet;
+    }
+    public void setInches(int inches) {
+        this.inches=inches;
+    }
+    public void display() {
+        System.out.println(feet + "feet and "+ inches+ " inches.");
+    }
+    public Distance1 add(Distance1 d) {
+        int totalFeet=this.feet+d.feet;
+        int totalInches=this.inches+d.inches;
+        return new(totalFeet, totalInches);
     }
     public static void main(String[] args) {
         
