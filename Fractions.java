@@ -33,7 +33,7 @@ public class Fractions {
     }
     public static void main(String[] args) {
         Fractions fraction=new Fractions();
-        fraction.setNumerator(10);
+        fraction.setNumerator(8);
         fraction.setDenominator(4);
         fraction.display();
         Fractions fraction2=new Fractions(5, 2);
