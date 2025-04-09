@@ -2,6 +2,7 @@ import java.util.Scanner;
 public class Person {
     private String name;
     private int ID;
+    Address address;
     public Person() {
         name="";
         ID=0;
@@ -22,7 +23,19 @@ public class Person {
     public void setID(int ID) {
         this.ID=ID;
     }
-
+    // public static int searchAndDelete(Person[] person, int index, int countPersons) {
+    //     if (index >= 0 && index < countPersons) {
+    //         System.out.println("Deleting: Name: " + person[index].getName() + ", ID: " + person[index].getID());
+    //         person[index] = person[countPersons - 1];
+    //         person[countPersons - 1] = null;
+    //         countPersons--;
+    //     } 
+    //     else {
+    //         System.out.println("Invalid index!");
+    //     }
+    //     return countPersons;
+    // }
+    
     //MAIN FUNCTION
     public static void main(String[] args) {
         Person [] person=new Person [5];
@@ -56,24 +69,22 @@ public class Person {
                     System.out.println("Array is full, no further person can be added");
                 }
                 break;
+
+
                 case 2:
                 for (int i=0; i<countPersons; i++) {
                     System.out.println("Name: " + person[i].getName() + "  and ID: " + person[i].getID());
                 }
                 break;
+
+
                 case 3:
                 System.out.println("Enter the index to delete (0 to " + (countPersons-1) + "):");
                 int index = input.nextInt();
-                if (index >= 0 && index < countPersons) {
-                System.out.println("Deleting: Name: " + person[index].getName() + ", ID: " + person[index].getID());
-                person[index] = person[countPersons - 1]; // Replace with last person
-                person[countPersons - 1] = null;
-                countPersons--;
-                } 
-                else {
-                    System.out.println("Invalid index!");
-                }
+                countPersons = searchAndDelete(person, index, countPersons);
                 break;
+
+
                 case 4:
                 System.out.print("Enter ID to search: ");
                 int inputID = input.nextInt();
@@ -91,6 +102,8 @@ public class Person {
                 System.out.println("No person found with ID " + inputID);
                 }
                 break;
+
+
                 case 0:
                 return;
             }
