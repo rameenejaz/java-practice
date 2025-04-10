@@ -2,7 +2,7 @@ public class Address {
     private int houseNumber;
     private String city;
     public Address() {
-        houseNumber=0;
+        houseNumber=-9;
         city="";
     }
     public Address(int houseNumber, String city) {
@@ -21,5 +21,5 @@ public class Address {
     public void displayAddress() {
         System.out.println("City: " + city +" and House Number:" + getHouseNumber());
     }
-    
+
 }
