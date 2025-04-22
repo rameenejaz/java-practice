@@ -3,5 +3,7 @@ public class Staff extends Employee {
     public Staff () {
         title="";
     }
-    
+    public Staff (String title) {
+        this.title=title;
+    }
 }
