@@ -9,4 +9,7 @@ public class Faculty extends Employee {
         this.officeHours=officeHours;
         this.rank=rank;
     }
+    public void display () {
+        System.out.println("Office Hours: " + officeHours + " Rank: " + rank);
+    }
 }

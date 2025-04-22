@@ -6,4 +6,7 @@ public class Staff extends Employee {
     public Staff (String title) {
         this.title=title;
     }
+    public void display () {
+        System.out.println("Title: " + title);
+    }
 }
