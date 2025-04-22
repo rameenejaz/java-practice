@@ -2,7 +2,7 @@ public class Employee {
     private String office;
     private int salary;
     Date dateHired;
-    public Employee {
+    public Employee () {
         office="";
         salary=0;
         dateHired=0;

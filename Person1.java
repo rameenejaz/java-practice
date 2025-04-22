@@ -16,7 +16,7 @@ public class Person1 {
         this.email=email;
     }
     public void display () {
-        System.out.println("Name: " +name + "Address:" + address + "Phone Number: " + phoneNumber + "Email: " + email);
+        System.out.println("Name: " +name + " \nAddress:" + address + " \nPhone Number: " + phoneNumber + " \nEmail: " + email);
     }
 }
 
