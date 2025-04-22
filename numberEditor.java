@@ -14,13 +14,13 @@ public class numberEditor {
         }
     }
     public void insertAtSpecific(int pos, int inputNumber) {
-        //here array moves to right
         if (pos<0 || pos>counter || counter>=10) {
             System.out.println("Invalid position");
             return;
         }
         else {
             for(int i=counter; i>pos; i--) {
+                //here array moves to right
                 array[i]=array[i-1];
             }
             array[pos]=inputNumber;
