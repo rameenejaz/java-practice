@@ -9,5 +9,11 @@ public class Person1 {
         phoneNumber=0;
         email="";
     }
+    public Person1(String name, String address, int phoneNumber, String email){
+        this.name=name;
+        this.address=address;
+        this.phoneNumber=phoneNumber;
+        this.email=email;
+    }
 }
 
