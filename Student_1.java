@@ -6,4 +6,7 @@ public class Student_1 extends Person1 {
     public Student_1(String status) {
         this.status=status;
     }
+    public void display () {
+        System.out.println("Status: " + status);
+    }
 }

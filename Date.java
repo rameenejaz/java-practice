@@ -12,4 +12,7 @@ public class Date {
         this.month=month;
         this.year=year;
     }
+    public void display () {
+        System.out.println(day +"/" + month + "/" + year);
+    }
 }

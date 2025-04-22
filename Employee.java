@@ -11,4 +11,7 @@ public class Employee {
         this.office=office;
         this.salary=salary;
     }
+    public void display () {
+        System.out.println("Office: " + office + "Salary: " + salary);
+    }
 }

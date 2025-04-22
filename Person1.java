@@ -15,5 +15,8 @@ public class Person1 {
         this.phoneNumber=phoneNumber;
         this.email=email;
     }
+    public void display () {
+        System.out.println("Name: " +name + "Address:" + address + "Phone Number: " + phoneNumber + "Email: " + email);
+    }
 }
 
