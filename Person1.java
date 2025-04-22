@@ -1,7 +1,7 @@
 public class Person1 {
     private String name;
     private String address;
-    private int phoneNumber;
+    private long phoneNumber;
     private String email;
     public Person1() {
         name="";
