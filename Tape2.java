@@ -1,11 +1,11 @@
 public class Tape2 {
     private String tapeTitle;
     private double tapePrice;
-    private int tapeCounter;
+    private int tapeMins;
     public Tape2() {
         tapeTitle="";
         tapePrice=0.0;
-        tapeCounter=0;
+        tapeMins=0;
     }
     public String getTapeTitle() {
         return tapeTitle;
@@ -19,5 +19,7 @@ public class Tape2 {
     public void setTapePrice(double price) {
         this.tapePrice=price;
     }
-    
+    public void tapePlayMins() {
+        tapeMins++;
+    }
 }
