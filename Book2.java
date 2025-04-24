@@ -15,6 +15,6 @@ public class Book2 extends Publication {
         super.display();
         System.out.println("Book Page count: " + getCounter());
     }
-
+    
 
 }
