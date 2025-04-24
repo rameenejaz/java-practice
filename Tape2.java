@@ -1,10 +1,5 @@
 public class Tape2 extends Publication {
     private int tapeMins;
-    public Tape2() {
-        tapeTitle="";
-        tapePrice=0.0;
-        tapeMins=0;
-    }
     public void tapePlayMins() {
         tapeMins++;
     }

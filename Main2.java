@@ -9,6 +9,14 @@ public class Main2 {
         book.setPrice(input.nextDouble());
         book.pageCount();
         book.display();
-
+        
+        input.nextLine();
+        Tape2 tape=new Tape2();
+        System.out.print("Enter Tape Title: ");
+        tape.setTitle(input.nextLine());
+        System.out.print("Enter tape price:");
+        tape.setPrice(input.nextDouble());
+        tape.tapePlayMins();
+        tape.display();
     }
 }
