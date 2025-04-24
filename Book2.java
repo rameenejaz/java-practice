@@ -22,7 +22,14 @@ public class Book2 {
     public void pageCount() {
         counter++;
     }
-    
+    public int getCounter() {
+        return counter;
+    }
+    public void display() {
+        System.out.println("Book title:" + getBookTitle());
+        System.out.println("Book Price: " + getBookPrice());
+        System.out.println("Book count: " + getCounter());
+    }
 
 
 }

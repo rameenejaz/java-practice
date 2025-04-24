@@ -22,4 +22,12 @@ public class Tape2 {
     public void tapePlayMins() {
         tapeMins++;
     }
+    public int getTapePlayMins() {
+        return tapeMins;
+    }
+    public void display() {
+        System.out.println("Tape Title: " + getTapeTitle());
+        System.out.println("Tape Price " + getTapePrice());
+        System.out.println("Tape minutes: " + getTapePlayMins());
+    }
 }
