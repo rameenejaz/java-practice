@@ -1,23 +1,9 @@
-public class Tape2 {
-    private String tapeTitle;
-    private double tapePrice;
+public class Tape2 extends Publication {
     private int tapeMins;
     public Tape2() {
         tapeTitle="";
         tapePrice=0.0;
         tapeMins=0;
-    }
-    public String getTapeTitle() {
-        return tapeTitle;
-    }
-    public void setTapeTitle(String title) {
-        this.tapeTitle=title;
-    }
-    public double getTapePrice() {
-        return tapePrice;
-    }
-    public void setTapePrice(double price) {
-        this.tapePrice=price;
     }
     public void tapePlayMins() {
         tapeMins++;
@@ -26,8 +12,7 @@ public class Tape2 {
         return tapeMins;
     }
     public void display() {
-        System.out.println("Tape Title: " + getTapeTitle());
-        System.out.println("Tape Price " + getTapePrice());
-        System.out.println("Tape minutes: " + getTapePlayMins());
+        super.display();
+        System.out.println("Playing time: " + getTapePlayMins() + " minutes");
     }
 }
