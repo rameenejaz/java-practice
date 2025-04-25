@@ -17,4 +17,12 @@ public class Laptop extends Computer{
         this.height=height;
         this.weight=weight;
     }
+    @Override
+    public void display() {
+        super.display();
+        System.out.println("Length: " +length);
+        System.out.println("Width: " + width);
+        System.out.println("Height: " + height); 
+        System.out.println("Weight: " + weight);
+    }
 }

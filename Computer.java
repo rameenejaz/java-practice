@@ -15,5 +15,11 @@ public class Computer {
         this.storageSize=storageSize;
         this.speed=speed;
     }
-    
+    public void display() {
+        System.out.println("Word size: " + wordSize);
+        System.out.println("Memory size: " + memorySize);
+        System.out.println("Storage Size: " + storageSize);
+        System.out.println("Speed: " + speed);
+    }
+
 }
