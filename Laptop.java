@@ -8,7 +8,7 @@ public class Laptop extends Computer{
         length=0;
         width=0;
         height=0;
-        weight=0;
+        weight=00;
     }
     public Laptop(int wordSize, int memorySize, int storageSize, int speed, int length, int width, int height, int weight) {
         super(wordSize, memorySize,storageSize, speed);
@@ -23,6 +23,6 @@ public class Laptop extends Computer{
         System.out.println("Length: " +length);
         System.out.println("Width: " + width);
         System.out.println("Height: " + height); 
-        System.out.println("Weight: " + weight);
+        System.out.println("Weight:  " + weight);
     }
 }
