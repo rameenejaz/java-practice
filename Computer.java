@@ -7,7 +7,7 @@ public class Computer {
         wordSize=0;
         memorySize=0;
         storageSize=0;
-        speed=0;
+        speed=00;
     }
     public Computer(int wordSize, int memorySize, int storageSize, int speed) {
         this.wordSize=wordSize;
