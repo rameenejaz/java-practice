@@ -7,7 +7,7 @@ public class Person2 {
     }
     public Person2 (String name, Address address) {
         this.name=name;
-        this.address=address;
+        // this.address=address;
     }
     public String getName() {
         return name;
@@ -18,8 +18,8 @@ public class Person2 {
     public Address1 getaddress () {
         return address();
     }
-    public void setAddress(Address1 address) {
-        this.address=address;
+    public void setAddress(Address1 address1) {
+        this.address=address1;
     }
     public void display () {
         System.out.println("Name: " +name);

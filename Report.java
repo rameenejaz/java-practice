@@ -40,23 +40,24 @@ public class Report {
         }
     }
     public static void searchData(int counter, Person2[] person) {
+        Scanner input=new Scanner(System.in);
         System.out.println("Enter the name to edit information");
         String searchName=input.nextLine();
         String newName="";
-        char inputOpt='a';
+        char inputOpt = input.next().charAt(0);
         Person2 editDetails=new Person2();
         for (int i=0; i<counter; i++) {
-            if (person[i]!=0 && people[i].getName().equalsIgnoreCase(searchName)) {
+            if (person[i]!= null && person[i].getName().equalsIgnoreCase(searchName)) {
                 System.out.print("Do you want to edit name or address? (N/A):");
                 inputOpt=input.next().charAt(0);
-                if (inputOpt.equalsIgnoreCase("N")) {
+                if (inputOpt=='N' || inputOpt=='n') {
                     System.out.println("You have choosen to edit the name");
                     System.out.print("Enter new name:");
                     newName=input.nextLine();
                     person[i].setName(newName);
                     System.out.println("Name has been updated");
                 }
-                if (inputOpt.equalsIgnoreCase("A")) {
+                if (inputOpt=='A' || inputOpt=='a') {
                     System.out.println("You have choosen to edit address");
                     System.out.print("Enter new country:");
                     String newCountry=input.nextLine();
@@ -75,6 +76,19 @@ public class Report {
             }
         }
     }
+    public static void deleteSpecific(int counter, Person2 [] person) {
+        Scanner input=new Scanner(System.in);
+        System.out.print("Enter the name of the person you want to delete data of: ");
+        String inputName=input.nextLine();
+        for (int i=0; i<counter; i++) {
+            if (person[i]!=null && person[i].getName().equalsIgnoreCase(inputName)) {
+                person[i]=null;
+                System.out.println("Person deleted successfully!");
+                return;
+            }
+            System.out.println("Person not found!");
+        }
+    } 
     public static void main(String[] args) {
         Scanner input=new Scanner(System.in);
         // Address1 [] addresses= new Address1[100];
