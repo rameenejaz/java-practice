@@ -39,14 +39,14 @@ public class Report {
             persons[i]=new Person2(inputName, address);
         }
     }
-    public static void searchData(int counter, Person2[] person) {
+    public static void searchData(int numOfPeople, Person2[] person) {
         Scanner input=new Scanner(System.in);
         System.out.println("Enter the name to edit information");
         String searchName=input.nextLine();
         String newName="";
         char inputOpt = input.next().charAt(0);
         Person2 editDetails=new Person2();
-        for (int i=0; i<counter; i++) {
+        for (int i=0; i<numOfPeople; i++) {
             if (person[i]!= null && person[i].getName().equalsIgnoreCase(searchName)) {
                 System.out.print("Do you want to edit name or address? (N/A):");
                 inputOpt=input.next().charAt(0);
@@ -76,11 +76,11 @@ public class Report {
             }
         }
     }
-    public static void deleteSpecific(int counter, Person2 [] person) {
+    public static void deleteSpecific(int numOfPeople, Person2 [] person) {
         Scanner input=new Scanner(System.in);
         System.out.print("Enter the name of the person you want to delete data of: ");
         String inputName=input.nextLine();
-        for (int i=0; i<counter; i++) {
+        for (int i=0; i<numOfPeople; i++) {
             if (person[i]!=null && person[i].getName().equalsIgnoreCase(inputName)) {
                 person[i]=null;
                 System.out.println("Person deleted successfully!");
@@ -89,6 +89,22 @@ public class Report {
             System.out.println("Person not found!");
         }
     } 
+    public static void displayData(int numOfPeople, Person2 [] person) {
+        Scanner input=new Scanner(System.in);
+        System.out.print("Enter the city you want to search:");
+        String inputCity=input.nextLine();
+        boolean found=false;
+        for (int i=0; i<numOfPeople; i++) {
+            if (person[i]!=null && person[i].getaddress().getCity().equalsIgnoreCase(inputCity)) {
+                System.out.println("Person has been found");
+                found=true;
+                person[i].display();
+            }
+        }
+        if (!found) {
+            System.out.println("No people in this city!");
+        }
+    }
     public static void main(String[] args) {
         Scanner input=new Scanner(System.in);
         // Address1 [] addresses= new Address1[100];
@@ -107,11 +123,16 @@ public class Report {
                 inputData(person, numOfPeople);
                 break;
                 case 3:
-
+                searchData(numOfPeople, person);
+                break;
                 case 4:
+                deleteSpecific(numOfPeople, person);
+                break;
                 case 5:
+                displayData(numOfPeople, person);
+                break;
                 case 0:
-
+                return;
             }
 
         }
