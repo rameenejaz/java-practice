@@ -8,7 +8,7 @@ public class Report {
         System.out.println("3. To edit the name or address of a specific person, enter person name:");
         System.out.println("4. To delete data of a specific person, enter name:");
         System.out.println("5. To search and display report of people by city, enter city:");
-        System.out.println("Choose one of the following options (1-5) or 0 to exit:");
+        System.out.print("Choose one of the following options (1-5) or 0 to exit:");
     }
     public static void numOfPeople() {
         Scanner input=new Scanner(System.in);
@@ -16,7 +16,7 @@ public class Report {
         System.out.print("Enter the number of people you want to register:");
         numOfPeople=input.nextInt();
         input.nextLine();
-        addresses=new Address1[numOfPeople];
+        Address1 [] addresses=new Address1[numOfPeople];
         System.out.println("Slots created! Enter data for " + numOfPeople+ " people!");
     }
     public static void inputData(Person2 [] persons, int numOfPeople) {
@@ -35,6 +35,7 @@ public class Report {
             String inputstreetName=input.nextLine();
             System.out.println("Enter house number:");
             int inputHouseNum=input.nextInt();
+            input.nextLine();
             Address1 address=new Address1(inputCity, inputCountry, inputstreetName, inputHouseNum);
             persons[i]=new Person2(inputName, address);
         }
@@ -55,6 +56,7 @@ public class Report {
                     System.out.print("Enter new name:");
                     newName=input.nextLine();
                     person[i].setName(newName);
+                    System.out.println();
                     System.out.println("Name has been updated");
                 }
                 if (inputOpt=='A' || inputOpt=='a') {
@@ -117,7 +119,11 @@ public class Report {
             input.nextLine();
             switch(option) {
                 case 1:
-                person=new Person2[numOfPeople];
+                System.out.print("Enter the number of people you want to register: ");
+                numOfPeople = input.nextInt();
+                input.nextLine(); // Clear buffer
+                person = new Person2[numOfPeople];
+                System.out.println("Slots created for " + numOfPeople + " people!");
                 break;
                 case 2:
                 inputData(person, numOfPeople);

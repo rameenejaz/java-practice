@@ -5,9 +5,9 @@ public class Person2 {
         name="";
         address=new Address1();
     }
-    public Person2 (String name, Address address) {
+    public Person2 (String name, Address1 address) {
         this.name=name;
-        // this.address=address;
+        this.address=address;
     }
     public String getName() {
         return name;
@@ -16,7 +16,7 @@ public class Person2 {
         this.name=name;
     }
     public Address1 getaddress () {
-        return address();
+        return address;
     }
     public void setAddress(Address1 address1) {
         this.address=address1;
