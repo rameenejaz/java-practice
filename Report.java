@@ -42,14 +42,35 @@ public class Report {
     public static void searchData(int counter, Person2[] person) {
         System.out.println("Enter the name to edit information");
         String searchName=input.nextLine();
+        String newName="";
         char inputOpt='a';
+        Person2 editDetails=new Person2();
         for (int i=0; i<counter; i++) {
             if (person[i]!=0 && people[i].getName().equalsIgnoreCase(searchName)) {
                 System.out.print("Do you want to edit name or address? (N/A):");
                 inputOpt=input.next().charAt(0);
                 if (inputOpt.equalsIgnoreCase("N")) {
                     System.out.println("You have choosen to edit the name");
-                    
+                    System.out.print("Enter new name:");
+                    newName=input.nextLine();
+                    person[i].setName(newName);
+                    System.out.println("Name has been updated");
+                }
+                if (inputOpt.equalsIgnoreCase("A")) {
+                    System.out.println("You have choosen to edit address");
+                    System.out.print("Enter new country:");
+                    String newCountry=input.nextLine();
+                    System.out.print("Enter new city:");
+                    String newCity=input.nextLine();
+                    System.out.print("Enter the street name:");
+                    String newStreetName=input.nextLine();
+                    System.out.print("Enter house number:");
+                    int newHouseNum=input.nextInt();
+                    input.nextLine();
+                    Address1 newAddress=new Address1(newCity, newCountry, newStreetName, newHouseNum);
+                    person[i].setAddress(newAddress);
+                    System.out.println("Address has been updated!");
+                    return;
                 }
             }
         }
