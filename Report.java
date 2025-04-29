@@ -37,7 +37,21 @@ public class Report {
             int inputHouseNum=input.nextInt();
             Address1 address=new Address1(inputCity, inputCountry, inputstreetName, inputHouseNum);
             persons[i]=new Person2(inputName, address);
-
+        }
+    }
+    public static void searchData(int counter, Person2[] person) {
+        System.out.println("Enter the name to edit information");
+        String searchName=input.nextLine();
+        char inputOpt='a';
+        for (int i=0; i<counter; i++) {
+            if (person[i]!=0 && people[i].getName().equalsIgnoreCase(searchName)) {
+                System.out.print("Do you want to edit name or address? (N/A):");
+                inputOpt=input.next().charAt(0);
+                if (inputOpt.equalsIgnoreCase("N")) {
+                    System.out.println("You have choosen to edit the name");
+                    
+                }
+            }
         }
     }
     public static void main(String[] args) {
@@ -58,6 +72,7 @@ public class Report {
                 inputData(person, numOfPeople);
                 break;
                 case 3:
+
                 case 4:
                 case 5:
                 case 0:
