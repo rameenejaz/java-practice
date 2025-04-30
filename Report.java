@@ -1,4 +1,4 @@
-//files used address1 and person2.
+//files used address1 and person2 and Report
 import java.util.Scanner;
 public class Report {
     public static void displayMenu() {
@@ -24,16 +24,16 @@ public class Report {
         int counter=0;
         for (int i=0; i<numOfPeople; i++) {
             System.out.println("Data for person " + i+1);
-            System.out.println("Enter name: ");
+            System.out.print("Enter name: ");
             String inputName=input.nextLine();
             System.out.println("Entering address of person " + i+1);
-            System.out.println("Enter country: ");
+            System.out.print("Enter country: ");
             String inputCountry=input.nextLine();
-            System.out.println("Enter city: ");
+            System.out.print("Enter city: ");
             String inputCity=input.nextLine();
-            System.out.println("Enter street name: ");
+            System.out.print("Enter street name: ");
             String inputstreetName=input.nextLine();
-            System.out.println("Enter house number:");
+            System.out.print("Enter house number:");
             int inputHouseNum=input.nextInt();
             input.nextLine();
             Address1 address=new Address1(inputCity, inputCountry, inputstreetName, inputHouseNum);
