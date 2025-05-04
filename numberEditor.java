@@ -1,8 +1,16 @@
 import java.util.Scanner;
 
 public class numberEditor {
-    private int[] array=new int[10];
-    private int counter=0;
+    private int[] array = new int[10];
+    private int counter;
+    numberEditor () {
+        array[0] = 1;
+        array[1] = 2;
+        array[2] = 3;
+        array[3] = 4;
+        array[4] = 5;
+        counter=5;
+    }
     public void insertAtEnd(int number) {
         if(counter<10) {
             array[counter]=number;
@@ -12,6 +20,26 @@ public class numberEditor {
         else {
             System.out.println("Array is full");
         }
+
+    }
+    public void insertAtStart(int number) {
+        if (counter >= 10) {
+            System.out.println("Array is full");
+            return;
+        }
+        if(counter<10) {
+            for (int i=counter; i>0; i++) {
+                array[i]=array[i-1]; //move array right
+            }
+            array[0]=number;
+            counter++;
+            System.out.println("Number inserted at start successfully!");
+        }
+        if (counter >= array.length) {
+            System.out.println("Array is full");
+            return;
+        }
+
     }
     public void insertAtSpecific(int pos, int inputNumber) {
         if (pos<0 || pos>counter || counter>=10) {
@@ -28,6 +56,32 @@ public class numberEditor {
             System.out.println("Number inputted at position successfully!");
         }
     }
+    public void findAndReplaceAll(int oldNum, int newNum) {
+        boolean found = false;
+        for (int i = 0; i < counter; i++) {
+            if (array[i] == oldNum) {
+                array[i] = newNum; //insert new number at this index
+                found = true; //repeat to replace all occurences of that number
+            }
+        }
+        if (!found) {
+            System.out.println("Number not found");
+        }
+        if (found) {
+            System.out.println("All occurrences replaced successfully.");
+        }
+        
+    }
+    public void findAndReplaceByChoice(int oldNum, int newNum) {
+        for (int i = 0; i < counter; i++) {
+            if (array[i] == oldNum) {
+                array[i] = newNum; //insert new number at this index
+                return;
+            }
+            System.out.println("First occurrence replaced.");
+        }
+        System.out.println("Number not found");
+    }
     public void searchDeleteNum(int inputNumber) {
         int pos=-1;
         for(int i=0; i<counter; i++) {
@@ -38,6 +92,7 @@ public class numberEditor {
         }
         if (pos==-1) {
             System.out.println("Number not found!");
+            return;
         }
         //to move it left
         for (int j=pos; j<(counter-1); j++) {
@@ -47,7 +102,7 @@ public class numberEditor {
         System.out.println("Number has been searched and deleted!");
     }
     public void searchDeleteIndex(int pos) {
-        if (pos<0 || pos>counter ) {
+        if (pos<0 || pos>=counter ) {
             System.out.println("Invalid index");
         }
         else {
@@ -68,16 +123,20 @@ public class numberEditor {
             System.out.print(array[i]+ " ");
         }
         System.out.println();
+        System.out.println("Current size: " + counter);
     }
     public void displayMenu () {
         System.out.println("1. Insert number at the end of the array.");
-        System.out.println("2. Insert number at specific index of the array.");
-        System.out.println("3. Search and delete number.");
-        System.out.println("4. Search and delete from specific index.");
-        System.out.println("5. Delete all numbers.");
-        System.out.println("6. View all elements.");
+        System.out.println("2. Insert number at the start of array");
+        System.out.println("3. Insert number at specific index of the array.");
+        System.out.println("4. Search and replace all numbers");
+        System.out.println("5. Search and replace by choice");
+        System.out.println("6. Search and delete number (first occurence).");
+        System.out.println("7. Search and delete from specific index.");
+        System.out.println("8. Delete all numbers.");
+        System.out.println("9. View all elements.");
         System.out.println("0 to exit.");
-        System.out.print("Choose from the following options (1-6 or 0 to exit): ");
+        System.out.print("Choose from the following options (1-9 or 0 to exit): ");
     }
     public static void main(String[] args) {
         numberEditor editor=new numberEditor();
@@ -85,6 +144,11 @@ public class numberEditor {
         int option=-99;
         while(option!=0) {
             editor.displayMenu();
+            if (!input.hasNextInt()) {
+                System.out.println("Please enter a valid number!");
+                input.next(); // discard invalid input
+                continue;
+            }
             option=input.nextInt();
            switch(option) {
             case 1:
@@ -93,35 +157,54 @@ public class numberEditor {
             editor.insertAtEnd(num1);
             break;
             case 2:
+            System.out.print("Enter the number you want to add at the start: ");   
+            int num2=input.nextInt();
+            editor.insertAtStart(num2);
+            break;
+            case 3:
             System.out.print("Enter the position at which you want to insert the number: ");
             int pos1=input.nextInt();
             System.out.print("Enter the number you want to insert at position " + pos1 + ": ");
-            int num2=input.nextInt();
-            editor.insertAtSpecific(pos1, num2);
-            break;
-            case 3:
-            System.out.print("Enter the number you want to delete: ");
             int num3=input.nextInt();
-            editor.searchDeleteNum(num3);
+            editor.insertAtSpecific(pos1, num3);
             break;
             case 4:
+            System.out.print("Enter the old number to replace:");
+            int oldNum=input.nextInt();
+            System.out.print("Enter the new number:");
+            int newNum=input.nextInt();
+            editor.findAndReplaceAll(oldNum, newNum);
+            break;
+            case 5:
+            System.out.print("Enter the old number to replace:");
+            int oldNum1=input.nextInt();
+            System.out.print("Enter the new number:");
+            int newNum1=input.nextInt();
+            editor.findAndReplaceByChoice(oldNum1, newNum1);
+            break;
+            case 6:
+            System.out.print("Enter the number you want to delete: ");
+            int num4=input.nextInt();
+            editor.searchDeleteNum(num4);
+            break;
+            case 7:
             System.out.print("Enter the position of the number you want to delete: ");
             int pos2=input.nextInt();
             editor.searchDeleteIndex(pos2);
             break;
-            case 5:
+            case 8:
             editor.deleteAll();
             break;
-            case 6:
+            case 9:
             editor.viewAll();
             break;
             case 0:
-            System.out.println("exiting the program!");
+            System.out.println("Exiting the program!");
             break;
             default:
             System.out.println("Invalid choice! Please select a valid option.");
-           }     
+        }
     }
     input.close();
-    }
+}
 }
