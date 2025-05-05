@@ -106,7 +106,35 @@ public class Main3 {
             }
         }
     }
-
+    public static void deleteSpecific(int numOfPeople, Person3 [] person) {
+        Scanner input=new Scanner(System.in);
+        System.out.print("Enter the ID of the person you want to delete data of: ");
+        String inputID=input.nextInt();
+        for (int i=0; i<numOfPeople; i++) {
+            if (person[i]!=null && person[i].getID().equalsIgnoreCase(inputID)) {
+                person[i]=null;
+                System.out.println("Person deleted successfully!");
+                return;
+            }
+            System.out.println("Person not found!");
+        }
+    } 
+    public static void displayData(int numOfPeople, Person3 [] person) {
+        Scanner input=new Scanner(System.in);
+        System.out.print("Enter the city you want to search:");
+        String inputCity=input.nextLine();
+        boolean found=false;
+        for (int i=0; i<numOfPeople; i++) {
+            if (person[i]!=null && person[i].getaddress().getCity().equalsIgnoreCase(inputCity)) {
+                System.out.println("Person has been found");
+                found=true;
+                person[i].display();
+            }
+        }
+        if (!found) {
+            System.out.println("No people in this city!");
+        }
+    }
 
     public static void main(String[] args) {
         
