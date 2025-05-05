@@ -11,7 +11,7 @@ public class Person3 {
         dob=new DOB2();
         address=new Address3();
     }
-    public Person3 (String name, int ID ,DOB2 dob,Address3 address) {
+    public Person3 (String name, int ID ,DOB2 dob, Address3 address) {
         this.name=name;
         this.ID=ID;
         this.dob=dob;
@@ -40,5 +40,7 @@ public class Person3 {
         address.displayAddress();
         dob.displayDOB();
     }
-    
+    public Person3(String name, Address3 address) {
+
+    }
 }

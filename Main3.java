@@ -1,4 +1,7 @@
 //files used are: person3, DOB2, Student3 and Address3, Main3
+
+import java.util.Scanner;
+
 public class Main3 {
     private Person3 [] person=new Person3[100];
     public static void displayMenu() {
@@ -10,6 +13,48 @@ public class Main3 {
         System.out.println("5: To view list of students month wise"); //ex:display data of all the students when may is entered
         System.out.println("6: To display list of students city wise."); //ex: display data of all those students in lahore
         System.out.println("0: To exit");
+        System.out.print("Choose one of the following options (1-6 or 0 to exit):");
+    }
+    public static void numOfPeople() {
+        Scanner input=new Scanner(System.in);
+        int numOfPeople=0;
+        System.out.print("Enter the number of people you want to register:");
+        numOfPeople=input.nextInt();
+        input.nextLine();
+        Address3 [] addresses=new Address3[numOfPeople];
+        System.out.println("Slots created! Enter data for " + numOfPeople+ " people!");
+    }
+    public static void inputData(Person3 [] persons, int numOfPeople) {
+        Scanner input=new Scanner(System.in);
+        int counter=0;
+        for (int i=0; i<numOfPeople; i++) {
+            System.out.println("Data for person " + i+1);
+            System.out.print("Enter name: ");
+            String inputName=input.nextLine();
+            System.out.print("Enter ID:");
+            int inputID=input.nextInt();
+            System.out.println("Entering date of birth of person" + i+1);
+            System.out.print("Enter day(date)");
+            int inputDay=input.nextInt();
+            input.nextLine();
+            System.out.print("Enter month:");
+            int inputMonth=input.nextInt();
+            input.nextLine();
+            System.out.print("Enter year:");
+            int inputYear=input.nextInt();
+            input.nextInt();
+            DOB2 dob=new DOB2(inputDay, inputMonth, inputYear);
+            System.out.println("Entering address of person " + i+1);
+            System.out.print("Enter city: ");
+            String inputCity=input.nextLine();
+            System.out.print("Enter house number:");
+            int inputHouseNum=input.nextInt();
+            input.nextLine();
+            System.out.print("Enter society name: ");
+            String inputSocietyName=input.nextLine();
+            Address3 address=new Address3(inputCity,inputHouseNum,inputSocietyName);
+            persons[i]=new Person3(inputName, inputID,dob,address);
+        }
     }
     public static void main(String[] args) {
         
