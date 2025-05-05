@@ -36,4 +36,9 @@ class DOB2 {
     public void displayDOB() {
         System.out.println(day+"/"+month+"/"+year);
     }
+    public void setDOB(int day, int month, int year) {
+        this.day=day;
+        this.month=month;
+        this.year=year;
+    }
 }

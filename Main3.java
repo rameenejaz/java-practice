@@ -56,6 +56,58 @@ public class Main3 {
             persons[i]=new Person3(inputName, inputID,dob,address);
         }
     }
+    public static void editData(int numOfPeople, Person3[] person) {
+        Scanner input=new Scanner(System.in);
+        System.out.println("Enter the ID to edit information");
+        String searchID=input.nextLine();
+        String newName="";
+        char inputOpt = input.next().charAt(0);
+        Person3 editDetails=new Person3();
+        for (int i=0; i<numOfPeople; i++) {
+            if (person[i]!= null && person[i].getID().equalsIgnoreCase(searchID)) {
+                System.out.print("Do you want to edit name or address or date of birth? (N/A/D):");
+                inputOpt=input.next().charAt(0);
+                if (inputOpt=='N' || inputOpt=='n') {
+                    System.out.println("You have choosen to edit the name");
+                    System.out.print("Enter new name:");
+                    newName=input.nextLine();
+                    person[i].setName(newName);
+                    System.out.println();
+                    System.out.println("Name has been updated");
+                }
+                if (inputOpt=='A' || inputOpt=='a') {
+                    System.out.println("Entering address of person " + i+1);
+                    System.out.print("Enter city: ");
+                    String inputCity=input.nextLine();
+                    System.out.print("Enter house number:");
+                    int inputHouseNum=input.nextInt();
+                    input.nextLine();
+                    System.out.print("Enter society name: ");
+                    String inputSocietyName=input.nextLine();
+                    Address3 address=new Address3(inputCity,inputHouseNum,inputSocietyName);
+                    person[i].setAddress(address);
+                    System.out.println("Address has been updated!");
+                    return;
+                }
+                if(inputOpt=='D' || inputOpt=='d') {
+                    System.out.println("Entering date of birth of person" + i+1);
+                    System.out.print("Enter day(date)");
+                    int inputDay=input.nextInt();
+                    input.nextLine();
+                    System.out.print("Enter month:");
+                    int inputMonth=input.nextInt();
+                    input.nextLine();
+                    System.out.print("Enter year:");
+                    int inputYear=input.nextInt();
+                    input.nextInt();
+                    DOB2 dob=new DOB2(inputDay, inputMonth, inputYear);
+                    person[i].setDOB(dob);
+                }
+            }
+        }
+    }
+
+
     public static void main(String[] args) {
         
     }
