@@ -16,14 +16,15 @@ public class Main3 {
         System.out.println("0: To exit");
         System.out.print("Choose one of the following options (1-6 or 0 to exit):");
     }
-    public static void numOfPeople() {
+    public static int numOfPeople() {
         Scanner input=new Scanner(System.in);
         int numOfPeople=0;
         System.out.print("Enter the number of people you want to register:");
         numOfPeople=input.nextInt();
         input.nextLine();
-        Address3 [] addresses=new Address3[numOfPeople];
+        // Address3 [] addresses=new Address3[numOfPeople];
         System.out.println("Slots created! Enter data for " + numOfPeople+ " people!");
+        return numOfPeople;
     }
     public static void inputData(Person3 [] persons, int numOfPeople) {
         Scanner input=new Scanner(System.in);
@@ -60,12 +61,12 @@ public class Main3 {
     public static void editData(int numOfPeople, Person3[] person) {
         Scanner input=new Scanner(System.in);
         System.out.println("Enter the ID to edit information");
-        String searchID=input.nextLine();
+        int searchID=input.nextLine();
         String newName="";
         char inputOpt = input.next().charAt(0);
-        Person3 editDetails=new Person3();
+        // Person3 editDetails=new Person3();
         for (int i=0; i<numOfPeople; i++) {
-            if (person[i]!= null && person[i].getID().equalsIgnoreCase(searchID)) {
+            if (person[i] != null && person[i].getID() == searchID) {
                 System.out.print("Do you want to edit name or address or date of birth? (N/A/D):");
                 inputOpt=input.next().charAt(0);
                 if (inputOpt=='N' || inputOpt=='n') {
@@ -142,7 +143,7 @@ public class Main3 {
         String inputMonth=input.nextLine();
         boolean found=false;
         for (int i=0; i<numOfPeople; i++) {
-            if (person[i]!=null && person[i].getaddress().getMonth().equalsIgnoreCase(inputMonth)) {
+            if (person[i]!=null && person[i].getDOB().getMonth().equalsIgnoreCase(inputMonth)) {
                 System.out.println("Person has been found");
                 found=true;
                 person[i].display();
@@ -154,7 +155,9 @@ public class Main3 {
     }
     public static void displayAll(int numOfPeople, Person3[] person) {
         for (int i=0; i<numOfPeople; i++) {
-            person[i].display();
+            if (person[i]!=null) {
+                person[i].display();
+            }
         }
         System.out.println("Data for all has been displayed!");
     }
@@ -169,7 +172,7 @@ public class Main3 {
             input.nextLine();
             switch (option) {
             case 1:
-            numOfPeople();
+            numOfPeople=numOfPeople();
             break;
             case 2:
             inputData(person, numOfPeople);
@@ -191,7 +194,6 @@ public class Main3 {
             break;
             case 0:
             return;
-            break;
             default:
             System.out.println("Error, You have entered an invalid option");
             }
