@@ -61,7 +61,7 @@ public class Main3 {
     public static void editData(int numOfPeople, Person3[] person) {
         Scanner input=new Scanner(System.in);
         System.out.println("Enter the ID to edit information");
-        int searchID=input.nextLine();
+        int searchID=input.nextInt();
         String newName="";
         char inputOpt = input.next().charAt(0);
         // Person3 editDetails=new Person3();
