@@ -37,7 +37,10 @@ public class Person3 {
     }
     public void display () {
         System.out.println("Name: " +name);
+        System.out.print("Address: ");
         address.displayAddress();
+        System.out.println();
+        System.out.print("Date of Birth:");
         dob.displayDOB();
     }
     public void setDOB(DOB2 dob) {

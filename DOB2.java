@@ -41,7 +41,4 @@ class DOB2 {
         this.month=month;
         this.year=year;
     }
-    public DOB2 getDOB() {
-        return this.dob;
-    }
 }

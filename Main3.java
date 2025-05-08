@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main3 {
     private Person3 [] person=new Person3[100];
     public static void displayMenu() {
-        System.out.println("---------- MENU----------");
+        System.out.println("----------------------- MENU--------------------------");
         System.out.println("1. Enter the number of people you want to register");
         System.out.println("2. To input data of the people");
         System.out.println("3: To edit data of student by entering name");
@@ -14,7 +14,8 @@ public class Main3 {
         System.out.println("6: To display list of students city wise."); //ex: display data of all those students in lahore
         System.out.println("7: To display data for all");
         System.out.println("0: To exit");
-        System.out.print("Choose one of the following options (1-6 or 0 to exit):");
+        System.out.println("------------------------------------------------------");
+        System.out.print("Choose one of the following options (1-7 or 0 to exit):");
     }
     public static int numOfPeople() {
         Scanner input=new Scanner(System.in);
@@ -34,8 +35,8 @@ public class Main3 {
             String inputName=input.nextLine();
             System.out.print("Enter ID:");
             int inputID=input.nextInt();
-            System.out.println("Entering date of birth of person" + i+1);
-            System.out.print("Enter day(date)");
+            System.out.println("Entering date of birth of person" + i+1 + ": ");
+            System.out.print("Enter day(date): ");
             int inputDay=input.nextInt();
             input.nextLine();
             System.out.print("Enter month:");
@@ -43,12 +44,13 @@ public class Main3 {
             // input.nextLine();
             System.out.print("Enter year:");
             int inputYear=input.nextInt();
-            input.nextInt();
+            input.nextLine();
             DOB2 dob=new DOB2(inputDay, inputMonth, inputYear);
-            System.out.println("Entering address of person " + i+1);
+            System.out.println("Entering address of person " + i+1 + ": ");
             System.out.print("Enter city: ");
             String inputCity=input.nextLine();
-            System.out.print("Enter house number:");
+            // input.next()
+            System.out.print("Enter house number: ");
             int inputHouseNum=input.nextInt();
             input.nextLine();
             System.out.print("Enter society name: ");
@@ -132,7 +134,7 @@ public class Main3 {
             }
         }
         if (!found) {
-            System.out.println("No people in this city!");
+            System.out.println("No data of people in this city!");
         }
     }
     public static void displayDataByMonth(int numOfPeople, Person3 [] person) {
@@ -148,7 +150,7 @@ public class Main3 {
             }
         }
         if (!found) {
-            System.out.println("No people in this city!");
+            System.out.println("No data of people born in this month!");
         }
     }
     public static void displayAll(int numOfPeople, Person3[] person) {
@@ -156,6 +158,7 @@ public class Main3 {
             if (person[i]!=null) {
                 person[i].display();
             }
+            System.out.println();
         }
         System.out.println("Data for all has been displayed!");
     }
