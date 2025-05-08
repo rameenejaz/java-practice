@@ -8,14 +8,15 @@ public class Main3 {
         System.out.println("----------------------- MENU--------------------------");
         System.out.println("1. Enter the number of people you want to register");
         System.out.println("2. To input data of the people");
-        System.out.println("3: To edit data of student by entering name");
-        System.out.println("4: To delete a person by entering their name");
-        System.out.println("5: To view list of students month wise"); //ex:display data of all the students when may is entered
-        System.out.println("6: To display list of students city wise."); //ex: display data of all those students in lahore
-        System.out.println("7: To display data for all");
+        System.out.println("3: To edit data of student by entering ID");
+        System.out.println("4: To delete a person by entering their ID");
+        System.out.println("5: To add a new student");
+        System.out.println("6: To view list of students month wise"); //ex:display data of all the students when may is entered
+        System.out.println("7: To display list of students city wise."); //ex: display data of all those students in lahore
+        System.out.println("8: To display data for all");
         System.out.println("0: To exit");
         System.out.println("------------------------------------------------------");
-        System.out.print("Choose one of the following options (1-7 or 0 to exit):");
+        System.out.print("Choose one of the following options (1-8 or 0 to exit):");
     }
     public static int numOfPeople() {
         Scanner input=new Scanner(System.in);
@@ -61,8 +62,9 @@ public class Main3 {
     }
     public static void editData(int numOfPeople, Person3[] person) {
         Scanner input=new Scanner(System.in);
-        System.out.println("Enter the ID to edit information");
+        System.out.print("Enter the ID to edit information:");
         int searchID=input.nextInt();
+        input.nextLine();
         String newName="";
         char inputOpt = input.next().charAt(0);
         for (int i=0; i<numOfPeople; i++) {
@@ -162,6 +164,44 @@ public class Main3 {
         }
         System.out.println("Data for all has been displayed!");
     }
+    public static void addStudent(int numOfPeople, Person3 [] persons) {
+        Scanner input=new Scanner(System.in);
+        if (numOfPeople>=persons.length) {
+            System.out.println("Cannot add more students, capacity is full!");
+        }
+        else {
+            numOfPeople++;
+            System.out.println("Adding a new student!");
+            System.out.print("Enter name: ");
+            String inputName=input.nextLine();
+            System.out.print("Enter ID:");
+            int inputID=input.nextInt();
+            System.out.println("Entering date of birth of student!");
+            System.out.print("Enter day(date): ");
+            int inputDay=input.nextInt();
+            input.nextLine();
+            System.out.print("Enter month:");
+            String inputMonth=input.nextLine();
+            // input.nextLine();
+            System.out.print("Enter year:");
+            int inputYear=input.nextInt();
+            input.nextLine();
+            DOB2 dob=new DOB2(inputDay, inputMonth, inputYear);
+            System.out.println("Entering address of student! ");
+            System.out.print("Enter city: ");
+            String inputCity=input.nextLine();
+            // input.next()
+            System.out.print("Enter house number: ");
+            int inputHouseNum=input.nextInt();
+            input.nextLine();
+            System.out.print("Enter society name: ");
+            String inputSocietyName=input.nextLine();
+            Address3 address=new Address3(inputCity,inputHouseNum,inputSocietyName);
+            persons[numOfPeople]=new Person3(inputName, inputID,dob,address);
+            System.out.println("Student added successfully!");
+
+        }
+    }
     public static void main(String[] args) {
         Scanner input=new Scanner(System.in);
         Person3 [] person=new Person3[100];
@@ -185,14 +225,16 @@ public class Main3 {
             deleteSpecific(numOfPeople, person);
             break;
             case 5:
-            displayDataByMonth(numOfPeople, person);
+            addStudent(numOfPeople, person);
             break;
             case 6:
-            displayDataByCity(numOfPeople, person);
+            displayDataByMonth(numOfPeople, person);
             break;
             case 7:
-            displayAll(numOfPeople, person);
+            displayDataByCity(numOfPeople, person);
             break;
+            case 8:
+            displayAll(numOfPeople, person);
             case 0:
             return;
             default:
