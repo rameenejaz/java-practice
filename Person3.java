@@ -23,10 +23,10 @@ public class Person3 {
     public void setName(String name) {
         this.name=name;
     }
-    public void getID(int ID) {
+    public void setID(int ID) {
         this.ID=ID;
     }
-    public int setID() {
+    public int getID() {
         return ID;
     }
     public Address3 getaddress () {
@@ -40,7 +40,13 @@ public class Person3 {
         address.displayAddress();
         dob.displayDOB();
     }
-    public Person3(String name, Address3 address) {
-
+    public void setDOB(DOB2 dob) {
+        this.dob=dob;
+    }
+    public String getMonth() {
+        return this.dob.month;
+    }    
+    public DOB2 getDOB() {
+        return this.dob;
     }
 }

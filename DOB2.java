@@ -1,16 +1,16 @@
 import java.util.Scanner;
 class DOB2 {
     public int day;
-    public int month;
+    public String month;
     public int year;
 
     public DOB2() {
         day = 0;
-        month = 0;
+        month = "";
         year = 0;
     }
 
-    public DOB2(int d, int m, int y) {
+    public DOB2(int d, String m, int y) {
         day = d;
         month = m;
         year = y;
@@ -18,7 +18,7 @@ class DOB2 {
     public int getYear() {
         return year;
     }
-    public int getMonth() {
+    public String getMonth() {
         return month;
     }
     public int getDay () {
@@ -27,7 +27,7 @@ class DOB2 {
     public void setYear(int year) {
         this.year=year;
     }
-    public void setMonth(int month) {
+    public void setMonth(String month) {
         this.month=month;
     }
     public void setDay(int day) {
@@ -36,9 +36,12 @@ class DOB2 {
     public void displayDOB() {
         System.out.println(day+"/"+month+"/"+year);
     }
-    public void setDOB(int day, int month, int year) {
+    public void setDOB(int day, String month, int year) {
         this.day=day;
         this.month=month;
         this.year=year;
+    }
+    public DOB2 getDOB() {
+        return this.dob;
     }
 }

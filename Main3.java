@@ -22,7 +22,6 @@ public class Main3 {
         System.out.print("Enter the number of people you want to register:");
         numOfPeople=input.nextInt();
         input.nextLine();
-        // Address3 [] addresses=new Address3[numOfPeople];
         System.out.println("Slots created! Enter data for " + numOfPeople+ " people!");
         return numOfPeople;
     }
@@ -40,8 +39,8 @@ public class Main3 {
             int inputDay=input.nextInt();
             input.nextLine();
             System.out.print("Enter month:");
-            int inputMonth=input.nextInt();
-            input.nextLine();
+            String inputMonth=input.nextLine();
+            // input.nextLine();
             System.out.print("Enter year:");
             int inputYear=input.nextInt();
             input.nextInt();
@@ -64,7 +63,6 @@ public class Main3 {
         int searchID=input.nextInt();
         String newName="";
         char inputOpt = input.next().charAt(0);
-        // Person3 editDetails=new Person3();
         for (int i=0; i<numOfPeople; i++) {
             if (person[i] != null && person[i].getID() == searchID) {
                 System.out.print("Do you want to edit name or address or date of birth? (N/A/D):");
@@ -97,8 +95,8 @@ public class Main3 {
                     int inputDay=input.nextInt();
                     input.nextLine();
                     System.out.print("Enter month:");
-                    int inputMonth=input.nextInt();
-                    input.nextLine();
+                    String inputMonth=input.nextLine();
+                    // input.nextLine();
                     System.out.print("Enter year:");
                     int inputYear=input.nextInt();
                     input.nextInt();
@@ -113,7 +111,7 @@ public class Main3 {
         System.out.print("Enter the ID of the person you want to delete data of: ");
         int inputID=input.nextInt();
         for (int i=0; i<numOfPeople; i++) {
-            if (person[i]!=null && person[i].getID().equalsIgnoreCase(inputID)) {
+            if (person[i]!=null && person[i].getID()==inputID) {
                 person[i]=null;
                 System.out.println("Person deleted successfully!");
                 return;
