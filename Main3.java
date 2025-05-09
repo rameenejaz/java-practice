@@ -36,7 +36,7 @@ public class Main3 {
             String inputName=input.nextLine();
             System.out.print("Enter ID:");
             int inputID=input.nextInt();
-            System.out.println("Entering date of birth of person" + i+1 + ": ");
+            System.out.println("Entering date of birth of person " + i+1 + ": ");
             System.out.print("Enter day(date): ");
             int inputDay=input.nextInt();
             input.nextLine();
@@ -66,11 +66,14 @@ public class Main3 {
         int searchID=input.nextInt();
         input.nextLine();
         String newName="";
-        char inputOpt = input.next().charAt(0);
+        boolean found=false;
         for (int i=0; i<numOfPeople; i++) {
             if (person[i] != null && person[i].getID() == searchID) {
+                found=true;
                 System.out.print("Do you want to edit name or address or date of birth? (N/A/D):");
-                inputOpt=input.next().charAt(0);
+                char inputOpt = input.next().charAt(0);
+                // inputOpt=input.next().charAt(0);
+                input.nextLine();
                 if (inputOpt=='N' || inputOpt=='n') {
                     System.out.println("You have choosen to edit the name");
                     System.out.print("Enter new name:");
@@ -79,7 +82,7 @@ public class Main3 {
                     System.out.println();
                     System.out.println("Name has been updated");
                 }
-                if (inputOpt=='A' || inputOpt=='a') {
+                else if (inputOpt=='A' || inputOpt=='a') {
                     System.out.println("Entering address of person " + i+1);
                     System.out.print("Enter city: ");
                     String inputCity=input.nextLine();
@@ -93,7 +96,7 @@ public class Main3 {
                     System.out.println("Address has been updated!");
                     return;
                 }
-                if(inputOpt=='D' || inputOpt=='d') {
+                else if(inputOpt=='D' || inputOpt=='d') {
                     System.out.println("Entering date of birth of person" + i+1);
                     System.out.print("Enter day(date)");
                     int inputDay=input.nextInt();
@@ -103,68 +106,38 @@ public class Main3 {
                     // input.nextLine();
                     System.out.print("Enter year:");
                     int inputYear=input.nextInt();
-                    input.nextInt();
+                    // input.nextInt();
                     DOB2 dob=new DOB2(inputDay, inputMonth, inputYear);
                     person[i].setDOB(dob);
                 }
+                else {
+                    System.out.println("Invalid option!");
+                }
+                break;
             }
+        }
+        if (!found) {
+            System.out.println("No person found with ID: " + searchID);
         }
     }
     public static void deleteSpecific(int numOfPeople, Person3 [] person) {
         Scanner input=new Scanner(System.in);
         System.out.print("Enter the ID of the person you want to delete data of: ");
         int inputID=input.nextInt();
+        boolean found=false;
         for (int i=0; i<numOfPeople; i++) {
             if (person[i]!=null && person[i].getID()==inputID) {
                 person[i]=null;
                 System.out.println("Person deleted successfully!");
-                return;
+                found=true;
+                break;
             }
+        }
+        if (!found) {
             System.out.println("Person not found!");
         }
     } 
-    public static void displayDataByCity(int numOfPeople, Person3 [] person) {
-        Scanner input=new Scanner(System.in);
-        System.out.print("Enter the city you want to search:");
-        String inputCity=input.nextLine();
-        boolean found=false;
-        for (int i=0; i<numOfPeople; i++) {
-            if (person[i]!=null && person[i].getaddress().getCity().equalsIgnoreCase(inputCity)) {
-                System.out.println("Person has been found");
-                found=true;
-                person[i].display();
-            }
-        }
-        if (!found) {
-            System.out.println("No data of people in this city!");
-        }
-    }
-    public static void displayDataByMonth(int numOfPeople, Person3 [] person) {
-        Scanner input=new Scanner(System.in);
-        System.out.print("Enter the month you want to search:");
-        String inputMonth=input.nextLine();
-        boolean found=false;
-        for (int i=0; i<numOfPeople; i++) {
-            if (person[i]!=null && person[i].getDOB().getMonth().equalsIgnoreCase(inputMonth)) {
-                System.out.println("Person has been found");
-                found=true;
-                person[i].display();
-            }
-        }
-        if (!found) {
-            System.out.println("No data of people born in this month!");
-        }
-    }
-    public static void displayAll(int numOfPeople, Person3[] person) {
-        for (int i=0; i<numOfPeople; i++) {
-            if (person[i]!=null) {
-                person[i].display();
-            }
-            System.out.println();
-        }
-        System.out.println("Data for all has been displayed!");
-    }
-    public static void addStudent(int numOfPeople, Person3 [] persons) {
+    public static int addStudent(int numOfPeople, Person3 [] persons) {
         Scanner input=new Scanner(System.in);
         if (numOfPeople>=persons.length) {
             System.out.println("Cannot add more students, capacity is full!");
@@ -199,8 +172,50 @@ public class Main3 {
             Address3 address=new Address3(inputCity,inputHouseNum,inputSocietyName);
             persons[numOfPeople]=new Person3(inputName, inputID,dob,address);
             System.out.println("Student added successfully!");
-
+            numOfPeople++;
         }
+        return numOfPeople;
+    }
+    public static void displayDataByCity(int numOfPeople, Person3 [] person) {
+        Scanner input=new Scanner(System.in);
+        System.out.print("Enter the city you want to search:");
+        String inputCity=input.nextLine();
+        boolean found=false;
+        for (int i=0; i<numOfPeople; i++) {
+            if (person[i]!=null && person[i].getaddress() != null && person[i].getaddress().getCity().equalsIgnoreCase(inputCity)) {
+                System.out.println("Person has been found in:" + inputCity);
+                found=true;
+                person[i].display();
+            }
+        }
+        if (!found) {
+            System.out.println("No data of people in this city!");
+        }
+    }
+    public static void displayDataByMonth(int numOfPeople, Person3 [] person) {
+        Scanner input=new Scanner(System.in);
+        System.out.print("Enter the month you want to search:");
+        String inputMonth=input.nextLine();
+        boolean found=false;
+        for (int i=0; i<numOfPeople; i++) {
+            if (person[i]!=null && person[i].getDOB().getMonth().equalsIgnoreCase(inputMonth)) {
+                System.out.println("Person has been found");
+                found=true;
+                person[i].display();
+            }
+        }
+        if (!found) {
+            System.out.println("No data of people born in this month!");
+        }
+    }
+    public static void displayAll(int numOfPeople, Person3[] person) {
+        for (int i=0; i<numOfPeople; i++) {
+            if (person[i]!=null) {
+                person[i].display();
+            }
+            System.out.println();
+        }
+        System.out.println("Data for all has been displayed!");
     }
     public static void main(String[] args) {
         Scanner input=new Scanner(System.in);
@@ -225,7 +240,7 @@ public class Main3 {
             deleteSpecific(numOfPeople, person);
             break;
             case 5:
-            addStudent(numOfPeople, person);
+            numOfPeople = addStudent(numOfPeople, persons);
             break;
             case 6:
             displayDataByMonth(numOfPeople, person);
