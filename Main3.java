@@ -143,7 +143,6 @@ public class Main3 {
             System.out.println("Cannot add more students, capacity is full!");
         }
         else {
-            numOfPeople++;
             System.out.println("Adding a new student!");
             System.out.print("Enter name: ");
             String inputName=input.nextLine();
@@ -212,8 +211,8 @@ public class Main3 {
         for (int i=0; i<numOfPeople; i++) {
             if (person[i]!=null) {
                 person[i].display();
+                System.out.println();
             }
-            System.out.println();
         }
         System.out.println("Data for all has been displayed!");
     }
@@ -240,7 +239,7 @@ public class Main3 {
             deleteSpecific(numOfPeople, person);
             break;
             case 5:
-            numOfPeople = addStudent(numOfPeople, persons);
+            numOfPeople = addStudent(numOfPeople, person);
             break;
             case 6:
             displayDataByMonth(numOfPeople, person);
@@ -250,6 +249,7 @@ public class Main3 {
             break;
             case 8:
             displayAll(numOfPeople, person);
+            break;
             case 0:
             return;
             default:
