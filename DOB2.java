@@ -1,3 +1,4 @@
+//files used are: person3, DOB2, Student3 and Address3, Main3
 import java.util.Scanner;
 class DOB2 {
     public int day;
