@@ -1,3 +1,4 @@
+//files used are shape, circle, triangle, and sqaure
 public class Circle extends Shape {
     public Circle(String penColor, String fillColor) {
         // since a circle has zero sides

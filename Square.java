@@ -1,3 +1,4 @@
+//files used are shape, circle, triangle, and sqaure
 public class Square extends Shape{
     public Square(int numberOfLines,String penColor, String fillColor) {
         super(numberOfLines, penColor, fillColor );

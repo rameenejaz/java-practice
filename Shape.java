@@ -1,7 +1,8 @@
+//files used are shape, circle, triangle, and sqaure
 public abstract class Shape {
-    private int numberOfLines;
-    private String penColor;
-    private String fillColor;
+    protected int numberOfLines;
+    protected String penColor;
+    protected String fillColor;
     public Shape() {
         numberOfLines=0;
         penColor="";
@@ -13,5 +14,5 @@ public abstract class Shape {
         this.fillColor=fillColor;
     }
     public abstract void draw();
-    
+
 }
