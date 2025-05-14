@@ -13,14 +13,14 @@ public class VerifiedSimple extends Simple{
     }
     @Override
     public void sub() {
-        if (num1 > 0 && num2 > 0) {
+        if (number1 > 0 && number2 > 0) {
             super.sub();
         } else {
             System.out.println("Error: Both numbers must be greater than 0 for subtraction.");
         }
     }
     public void mul() {
-        if (num1 > 0 && num2 > 0) {
+        if (number1 > 0 && number2 > 0) {
             super.mul();
         } else {
             System.out.println("Error: Both numbers must be greater than 0 for multiplication.");
@@ -29,7 +29,7 @@ public class VerifiedSimple extends Simple{
 
     @Override
     public void div() {
-        if (num1 > 0 && num2 > 0) {
+        if (number1 > 0 && number2 > 0) {
             super.div();
         } else {
             System.out.println("Error: Both numbers must be greater than 0 for division.");
