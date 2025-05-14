@@ -5,7 +5,8 @@ public class Main5 {
         verified.sub();
         verified.mul();
         verified.div();
-        // VerifiedSimple verified2=new VerifiedSimple(-4,1);
+        VerifiedSimple verified2=new VerifiedSimple(-4,1);
+        verified2.add();
 
     }
 }
