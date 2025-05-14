@@ -9,20 +9,25 @@ public class Simple {
         this.number1=number1;
         this.number2=number2;
     }
-    public double add(double number1, double number2) {
+    public void add(double number1, double number2) {
         double add=number1+number2;
-        return add;
+        System.out.println("Addition: " + add);
     }
-    public double sub(double number1, double number2) {
+    public void sub() {
         double sub=number1-number2;
-        return sub;
+        System.out.println("Subtraction: " + sub);
     }
-    public double mul(double number1, double number2) {
+    public void mul() {
         double multiply=number1*number2;
-        return multiply;
+        System.out.println("Multiplication: " + multiply);
     }
-    public double divide (double number1, double number2) {
-        double divide=number1/number2;
-        return divide;
+    public void divide () {
+        if (number2!=0) {
+            double divide=number1/number2;
+            System.out.println("Division: " + divide);
+        }
+        else {
+            System.out.println("Error, division with zero is not possible");
+        }
     }
 }
