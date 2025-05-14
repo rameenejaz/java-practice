@@ -8,6 +8,6 @@ public class Square extends Shape{
         System.out.print("Lines: " +numberOfLines);
         System.out.println("Pen Color: " + penColor);
         System.out.println("Fill Color: " + fillColor);
-        System.out.println("O");
+        System.out.println("[]");
     }
 }
