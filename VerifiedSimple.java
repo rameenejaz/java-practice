@@ -1,4 +1,6 @@
+//files used are simple, verifiedSimple and main5
 public class VerifiedSimple extends Simple{
+
     public VerifiedSimple(double number1, double number2) {
         super(number1, number2);
     }
