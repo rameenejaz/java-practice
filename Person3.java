@@ -1,4 +1,4 @@
-//files used are Person3, DOB3, Student3 and Address3 and Main3
+//files used are Person3, DOB2, Student3 and Address3 and Main3
 public class Person3 {
     private String name;
     private int ID;

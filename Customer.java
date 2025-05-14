@@ -1,3 +1,5 @@
+//files used are Date2, Customer, Item, Order, Category, and Main4
+
 public class Customer {
     private int ID;
     private String name;
@@ -21,5 +23,5 @@ public class Customer {
     public void setName(String name) {
         this.name=name;
     }
-    
+
 }
