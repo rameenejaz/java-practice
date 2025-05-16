@@ -18,22 +18,27 @@ public class BookStore {
     }
     Book3 [] books= {book1, book2, book3,book4, book5};
     public void searchRecord() {
-        Scanner input=new Scannner(Sys.in);
+        Scanner input=new Scanner(System.in);
         System.out.print("Enter the name of the book you want to search:");
         String inputBook=input.nextLine();
         boolean found=false;
         for (int i=0; i<books.length; i++) {
-            if (books[i].getName.equalsIgnoreCase(inputBook)) {
-                found=true;
+            if (books[i].getName().equalsIgnoreCase(inputBook)) {
                 System.out.println("Book has been found");
-            }
-            else if(!found) {
-                System.out.println("Book has not been found");
+                books[i].displayBooks();
+                found=true;
+                break;
             }
         }
+        if(!found) {
+            System.out.println("Book has not been found");
+        }
+        input.close();
+        
     }
     public static void main(String[] args) {
         BookStore books=new BookStore();
         books.displayAll();
+        books.searchRecord();
     }
 }
