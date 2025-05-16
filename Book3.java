@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class Book3 {
     private String name;
     private String publisher;
@@ -20,4 +21,8 @@ public class Book3 {
         System.out.println("---------------------------");
         System.out.println();
     }
+    public String getName() {
+        return name;
+    }
+
 }
