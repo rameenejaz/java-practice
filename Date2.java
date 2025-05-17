@@ -10,6 +10,15 @@ public class Date2 {
         this.day=day;
         this.month=month;
     }
+    private boolean isValidMonth(String month) {
+        String [] months={"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+        for (int i=0; i<months.length; i++) {
+            if (months[i].equalsIgnoreCase(month)) {
+                return true;
+            }
+        }
+        return false;
+    }
     public int getDay() {
         return day;
     }

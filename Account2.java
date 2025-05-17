@@ -2,6 +2,7 @@ import java.util.Scanner;
 public class Account2 {
     private double balance;
     private String accountNumber;
+    private String name;
     public Account2() {
         balance=0.0;
         accountNumber="";
@@ -14,7 +15,7 @@ public class Account2 {
         Scanner input=new Scanner(System.in);
         System.out.print("Enter the account number you want to perform operation on:");
         String inputAccountNum=input.nextLine();
-        if (inputAccountNum.equals(inputAccountNum)) {
+        if (inputAccountNum.equals(accountNumber)) {
             System.out.print("Enter the amount you want to withdraw:");
             int amount=input.nextInt();
             input.nextLine();
@@ -32,7 +33,7 @@ public class Account2 {
         Scanner input=new Scanner(System.in);
         System.out.print("Enter the account number you want to perform operation on:");
         String inputAccountNum=input.nextLine();
-        if (inputAccountNum.equals(inputAccountNum)) {
+        if (inputAccountNum.equals(accountNumber)) {
         System.out.print("Enter the amount you want to deposit:");
         int amount=input.nextInt();
         input.nextLine();
@@ -50,8 +51,13 @@ public class Account2 {
         Scanner input=new Scanner(System.in);
         System.out.print("Enter the account number you want to perform operation on:");
         String inputAccountNum=input.nextLine();
-        if (inputAccountNum.equals(inputAccountNum)) {
+        if (inputAccountNum.equals(accountNumber)) {
             return balance;
+        }
+        else {
+            System.out.println("Invalid account number");
+            return -1;
+
         }
     }
 
