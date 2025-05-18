@@ -1,10 +1,9 @@
 //files used are Date2, Customer, Item, Order, Category, and Main4
-
 public class Item {
     private int ID;
     private String name;
-    private int QtyInStock;
     private int QtyOrdered;
+    private int QtyInStock;
     private double unitPrice;
     public Item() {
         ID=0;
@@ -32,23 +31,25 @@ public class Item {
     public void setName(String name) {
         this.name=name;
     }
-    private int getQtyInStock() {
+    public int getQtyInStock() {
         return QtyInStock;
     }
-    private void setQtyInStock(int QtyInStock) {
+    public void setQtyInStock(int QtyInStock) {
         this.QtyInStock=QtyInStock;
     }
-    private int getQtyOrdered() {
+    public int getQtyOrdered() {
         return QtyOrdered;
     }
-    private void setQtyOrdered(int QtyOrdered) {
+    public void setQtyOrdered(int QtyOrdered) {
         this.QtyInStock=QtyInStock;
     }
-    private double getUnitPrice() {
+    public double getUnitPrice() {
         return unitPrice;
     }
-    private void setUnitPrice(double unitPrice) {
+    public void setUnitPrice(double unitPrice) {
         this.unitPrice=unitPrice;
     }
-
+    public void reduceQuantity(int quantity) {
+        quantityOrdered-=quantity;
+    }
 }
