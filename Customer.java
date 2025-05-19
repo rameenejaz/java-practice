@@ -1,5 +1,5 @@
 //files used are Date2, Customer, Item, Order, Category, and Main4
-
+import java.util.ArrayList;
 public class Customer {
     private int ID;
     private String name;
@@ -34,5 +34,22 @@ public class Customer {
         return totalOrderPrice;
     }
     //function for the star of the month
-
+    public static void displayStarOfMonth(ArrayList<Order> orders) {
+        Customer star=null;
+        double max=0;
+        for (int i=0; i<orders.size(); i++) {
+            Orders o=orders.get(i);
+            Customer c=o.getCustomer();
+            if (o[i]>max) {
+                max=c.getTotalOrderPrice();
+                star=max;
+            }
+        }
+        if (star!=null) {
+            System.out.println("Star of the month: " + star.getName());
+        }
+        else {
+            System.out.println("No orders were placed this month!");
+        }
+    }
 }
