@@ -136,7 +136,7 @@ public class numberEditor {
         System.out.println("8. Delete all numbers.");
         System.out.println("9. View all elements.");
         System.out.println("0 to exit.");
-        System.out.print("Choose from the following options (1-9 or 0 to exit):");
+        System.out.print("Choose from the following options (1-9 or 0 to exit): ");
     }
     public static void main(String[] args) {
         numberEditor editor=new numberEditor();
