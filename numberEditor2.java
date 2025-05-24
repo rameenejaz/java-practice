@@ -12,8 +12,8 @@ public class numberEditor2 {
             backupArray[i] = array[i];
         }
         backupCounter = counter;
-    } 
-    numberEditor () {
+    }
+    numberEditor2 () {
         array[0] = 1;
         array[1] = 2;
         array[2] = 3;
@@ -90,9 +90,9 @@ public class numberEditor2 {
         for (int i = 0; i < counter; i++) {
             if (array[i] == oldNum) {
                 array[i] = newNum; //insert new number at this index
+                System.out.println("First occurrence replaced.");
                 return;
             }
-            System.out.println("First occurrence replaced.");
         }
         System.out.println("Number not found");
     }
@@ -149,6 +149,10 @@ public class numberEditor2 {
         System.out.println("Last number deleted and moved to trash.");
     }
     public void undoLastChange() {
+        if (backupCounter==0) {
+            System.out.println("Nothing to undo yet");
+            return;
+        }
         for (int i = 0; i < backupCounter; i++) {
             array[i] = backupArray[i];
         }
@@ -179,7 +183,7 @@ public class numberEditor2 {
         System.out.print("Choose from the following options (1-11 or 0 to exit): ");
     }
     public static void main(String[] args) {
-        numberEditor editor=new numberEditor();
+        numberEditor2 editor=new numberEditor2();
         Scanner input=new Scanner(System.in);
         int option=-99;
         while(option!=0) {
@@ -236,9 +240,10 @@ public class numberEditor2 {
             editor.deleteAll();
             break;
             case 9:
+            editor.deleteLastElement();
             break;
             case 10:
-            editor.undo();
+            editor.undoLastChange();
             break;
             case 11:
             editor.viewAll();
