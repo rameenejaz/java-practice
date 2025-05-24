@@ -1,17 +1,22 @@
 //adding the undo functionalities
 import java.util.Scanner;
+import java.util.ArrayList;
 public class numberEditor2 {
     private int[] array = new int[10];
     private int counter;
-    private int[] trashArray = new int[10];
-    private int trashCounter = 0;
-    private int[] backupArray = new int[10];  // Stores the previous version of array
-    private int backupCounter = 0;
+    // private int[] trashArray = new int[10];
+    // private int trashCounter = 0;
+    // private int[] backupArray = new int[10];  // Stores the previous version of array
+    // private int backupCounter = 0;
+    private ArrayList<int[]> historyList = new ArrayList<>();
+    private ArrayList<Integer> counterList = new ArrayList<>();     
     private void saveBackup() {
+        int[] backup = new int[10];
         for (int i = 0; i < counter; i++) {
-            backupArray[i] = array[i];
+            backup[i] = array[i];
         }
-        backupCounter = counter;
+        historyList.add(backup);
+        counterList.add(counter);
     }
     numberEditor2 () {
         array[0] = 1;
@@ -134,29 +139,18 @@ public class numberEditor2 {
         counter=0;
         System.out.println("All numbers in index deleted successfully!");
     }
-    public void deleteLastElement() {
-        if (counter == 0) {
-            System.out.println("Main array is empty. Nothing to delete.");
-            return;
-        }
-        if (trashCounter >= 10) {
-            System.out.println("Trash is full. Cannot delete more.");
-            return;
-        }
-        int deleted = array[counter - 1];
-        trashArray[trashCounter++] = deleted;
-        counter--;
-        System.out.println("Last number deleted and moved to trash.");
-    }
     public void undoLastChange() {
-        if (backupCounter==0) {
+        if (historyList.isEmpty()) {
             System.out.println("Nothing to undo yet");
             return;
         }
-        for (int i = 0; i < backupCounter; i++) {
-            array[i] = backupArray[i];
+        int lastIndex = historyList.size() - 1;
+        int[] previous = historyList.remove(lastIndex);
+        counter = counterList.remove(lastIndex);
+    
+        for (int i = 0; i < counter; i++) {
+            array[i] = previous[i];
         }
-        counter = backupCounter;
         System.out.println("Undo complete. Array has been restored to the last saved state.");
     }
     public void viewAll() {
@@ -166,11 +160,13 @@ public class numberEditor2 {
         for(int i=0; i<counter; i++) {
             System.out.print(array[i]+ " ");
         }
-        System.out.println("--------------------");
         System.out.println();
         System.out.println("Current size: " + counter);
+        System.out.println("---------------------");
+        System.out.println();
     }
     public void displayMenu () {
+        System.out.println("-----------------------------------------------------------");
         System.out.println("1. Insert number at the end of the array.");
         System.out.println("2. Insert number at the start of array");
         System.out.println("3. Insert number at specific index of the array.");
@@ -179,10 +175,9 @@ public class numberEditor2 {
         System.out.println("6. Search and delete number (first occurence).");
         System.out.println("7. Search and delete from specific index.");
         System.out.println("8. Delete all numbers.");
-        // System.out.println("9. Delete last number (moves to trash).");
         System.out.println("9. Undo the last change.");
         System.out.println("10. View all elements.");
-        System.out.println("0 to exit.");
+        System.out.println("-----------------------------------------------------------");
         System.out.print("Choose from the following options (1-10 or 0 to exit): ");
     }
     public static void main(String[] args) {
