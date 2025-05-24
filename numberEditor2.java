@@ -160,10 +160,13 @@ public class numberEditor2 {
         System.out.println("Undo complete. Array has been restored to the last saved state.");
     }
     public void viewAll() {
+        System.out.println();
+        System.out.println("--------------------");
         System.out.print("Array:");
         for(int i=0; i<counter; i++) {
             System.out.print(array[i]+ " ");
         }
+        System.out.println("--------------------");
         System.out.println();
         System.out.println("Current size: " + counter);
     }
@@ -177,10 +180,10 @@ public class numberEditor2 {
         System.out.println("7. Search and delete from specific index.");
         System.out.println("8. Delete all numbers.");
         // System.out.println("9. Delete last number (moves to trash).");
-        System.out.println("10. Undo the last change.");
-        System.out.println("11. View all elements.");
+        System.out.println("9. Undo the last change.");
+        System.out.println("10. View all elements.");
         System.out.println("0 to exit.");
-        System.out.print("Choose from the following options (1-11 or 0 to exit): ");
+        System.out.print("Choose from the following options (1-10 or 0 to exit): ");
     }
     public static void main(String[] args) {
         numberEditor2 editor=new numberEditor2();
@@ -240,12 +243,9 @@ public class numberEditor2 {
             editor.deleteAll();
             break;
             case 9:
-            editor.deleteLastElement();
-            break;
-            case 10:
             editor.undoLastChange();
             break;
-            case 11:
+            case 10:
             editor.viewAll();
             break;
             case 0:
