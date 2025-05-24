@@ -1,8 +1,18 @@
 //adding the undo functionalities
 import java.util.Scanner;
 public class numberEditor2 {
-     private int[] array = new int[10];
+    private int[] array = new int[10];
     private int counter;
+    private int[] trashArray = new int[10];
+    private int trashCounter = 0;
+    private int[] backupArray = new int[10];  // Stores the previous version of array
+    private int backupCounter = 0;
+    private void saveBackup() {
+        for (int i = 0; i < counter; i++) {
+            backupArray[i] = array[i];
+        }
+        backupCounter = counter;
+    } 
     numberEditor () {
         array[0] = 1;
         array[1] = 2;
@@ -39,7 +49,6 @@ public class numberEditor2 {
             System.out.println("Array is full");
             return;
         }
-
     }
     public void insertAtSpecific(int pos, int inputNumber) {
         if (pos<0 || pos>counter || counter>=10) {
@@ -117,6 +126,22 @@ public class numberEditor2 {
         counter=0;
         System.out.println("All numbers in index deleted successfully!");
     }
+    public void deleteLastElement() {
+        if (counter == 0) {
+            System.out.println("Main array is empty. Nothing to delete.");
+            return;
+        }
+        if (trashCounter >= 10) {
+            System.out.println("Trash is full. Cannot delete more.");
+            return;
+        }
+        int deleted = array[counter - 1];
+        trashArray[trashCounter++] = deleted;
+        counter--;
+        System.out.println("Last number deleted and moved to trash.");
+    }
+    
+
     public void viewAll() {
         System.out.print("Array:");
         for(int i=0; i<counter; i++) {
@@ -134,9 +159,11 @@ public class numberEditor2 {
         System.out.println("6. Search and delete number (first occurence).");
         System.out.println("7. Search and delete from specific index.");
         System.out.println("8. Delete all numbers.");
-        System.out.println("9. View all elements.");
+        System.out.println("9. Delete last number (moves to trash).");
+        System.out.println("11. Undo delete (restore from trash).");
+        System.out.println("11. View all elements.");
         System.out.println("0 to exit.");
-        System.out.print("Choose from the following options (1-9 or 0 to exit): ");
+        System.out.print("Choose from the following options (1-11 or 0 to exit): ");
     }
     public static void main(String[] args) {
         numberEditor editor=new numberEditor();
@@ -196,6 +223,12 @@ public class numberEditor2 {
             editor.deleteAll();
             break;
             case 9:
+            
+            break;
+            case 10:
+            
+            break;
+            case 11:
             editor.viewAll();
             break;
             case 0:
