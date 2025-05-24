@@ -22,6 +22,7 @@ public class numberEditor2 {
         counter=5;
     }
     public void insertAtEnd(int number) {
+        saveBackup();
         if(counter<10) {
             array[counter]=number;
             counter++;
@@ -33,6 +34,7 @@ public class numberEditor2 {
 
     }
     public void insertAtStart(int number) {
+        saveBackup();
         if (counter >= 10) {
             System.out.println("Array is full");
             return;
@@ -51,6 +53,7 @@ public class numberEditor2 {
         }
     }
     public void insertAtSpecific(int pos, int inputNumber) {
+        saveBackup();
         if (pos<0 || pos>counter || counter>=10) {
             System.out.println("Invalid position");
             return;
@@ -66,6 +69,7 @@ public class numberEditor2 {
         }
     }
     public void findAndReplaceAll(int oldNum, int newNum) {
+        saveBackup();
         boolean found = false;
         for (int i = 0; i < counter; i++) {
             if (array[i] == oldNum) {
@@ -82,6 +86,7 @@ public class numberEditor2 {
         
     }
     public void findAndReplaceByChoice(int oldNum, int newNum) {
+        saveBackup();
         for (int i = 0; i < counter; i++) {
             if (array[i] == oldNum) {
                 array[i] = newNum; //insert new number at this index
@@ -92,6 +97,7 @@ public class numberEditor2 {
         System.out.println("Number not found");
     }
     public void searchDeleteNum(int inputNumber) {
+        saveBackup();
         int pos=-1;
         for(int i=0; i<counter; i++) {
             if (array[i]==inputNumber) {
@@ -111,6 +117,7 @@ public class numberEditor2 {
         System.out.println("Number has been searched and deleted!");
     }
     public void searchDeleteIndex(int pos) {
+        saveBackup();
         if (pos<0 || pos>=counter ) {
             System.out.println("Invalid index");
         }
@@ -123,6 +130,7 @@ public class numberEditor2 {
         }
     }
     public void deleteAll() {
+        saveBackup();
         counter=0;
         System.out.println("All numbers in index deleted successfully!");
     }
@@ -140,8 +148,13 @@ public class numberEditor2 {
         counter--;
         System.out.println("Last number deleted and moved to trash.");
     }
-    
-
+    public void undoLastChange() {
+        for (int i = 0; i < backupCounter; i++) {
+            array[i] = backupArray[i];
+        }
+        counter = backupCounter;
+        System.out.println("Undo complete. Array has been restored to the last saved state.");
+    }
     public void viewAll() {
         System.out.print("Array:");
         for(int i=0; i<counter; i++) {
@@ -159,8 +172,8 @@ public class numberEditor2 {
         System.out.println("6. Search and delete number (first occurence).");
         System.out.println("7. Search and delete from specific index.");
         System.out.println("8. Delete all numbers.");
-        System.out.println("9. Delete last number (moves to trash).");
-        System.out.println("11. Undo delete (restore from trash).");
+        // System.out.println("9. Delete last number (moves to trash).");
+        System.out.println("10. Undo the last change.");
         System.out.println("11. View all elements.");
         System.out.println("0 to exit.");
         System.out.print("Choose from the following options (1-11 or 0 to exit): ");
@@ -223,10 +236,9 @@ public class numberEditor2 {
             editor.deleteAll();
             break;
             case 9:
-            
             break;
             case 10:
-            
+            editor.undo();
             break;
             case 11:
             editor.viewAll();
