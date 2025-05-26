@@ -18,8 +18,8 @@ public class Supplier {
     public String getName() {
         return name;
     }
-    public String city() {
+    public String getCity() {
         return city;
     }
-    
+
 }
