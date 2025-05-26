@@ -50,6 +50,7 @@ public class Item {
         this.unitPrice=unitPrice;
     }
     public void reduceQuantity(int quantity) {
-        quantityOrdered-=quantity;
+        QtyInStock-=quantity;
+        
     }
 }
