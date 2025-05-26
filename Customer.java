@@ -37,13 +37,11 @@ public class Customer {
     public static void displayStarOfMonth(ArrayList<Order> orders) {
         Customer star=null;
         double max=0;
-        for (int i=0; i<orders.size(); i++) {
-            Orders o=orders.get(i);
+        for (Order o: orders) {
             Customer c=o.getCustomer();
-            if (o[i]>max) {
-                max=c.getTotalOrderPrice();
-                star=max;
-                
+            if (c.getTotalOrderPrice()>max) {
+                max=c.totalOrderPrice();
+                star=c;
             }
         }
         if (star!=null) {
