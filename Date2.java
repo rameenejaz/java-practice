@@ -6,7 +6,7 @@ public class Date2 {
         day=0;
         month="";
     }
-    public Date2(int day, String month) {
+    public Date2(int day, String month) { //parameterized constructor
         this.day=day;
         this.month=month;
     }
@@ -30,6 +30,10 @@ public class Date2 {
     }
     public void setMonth(String month) {
         this.month=month;
-    } 
+    }
+    public String toString() {
+        return day +"/" + month + "/" + year;
+    }
+    
 
  }
