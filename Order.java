@@ -1,13 +1,13 @@
 //files used are Date2, Customer, Item, Order, Category, and Main4
 import java.util.ArrayList;
-
 public class Order {
     private Customer customer;
     private int customerID;
     private Date2 orderdate;
     private ArrayList <Item> itemsList;
     private ArrayList <Integer> quantities;
-    public Order(int customerID, Date2 orderDate) {
+    public Order(int customerID, Date2 orderDate, Customer customer) {
+        this.customer=customer;
         this.customerID=customerID;
         this.orderdate=orderDate;
         this.itemsList=new ArrayList<>();
@@ -36,7 +36,7 @@ public class Order {
         for (int i=0; i<itemsList.size(); i++) {
             Item item=itemsList.get(i);
             int quantity=quantities.get(i);
-            System.out.println(item.getName() + "--- Quantity: " + item.getQtyOrdered() + " ---- Unit Price: $" + item.getUnitPrice());
+            System.out.println(item.getName() + "--- Quantity: " + quantity + " ---- Unit Price: $" + item.getUnitPrice());
 
         }
     }
@@ -45,6 +45,26 @@ public class Order {
     }
     public Date getOrderDate() {
         return orderdate;
+    }
+    public Date2 date () {
+        return orderdate;
+    }
+    public double calculateTotalPrice() {
+        double total=0;
+        for (int i=0; i<itemsList.size(); i++) {
+            Item item=itemsList.get(i);
+            int quantity=quantities.get(i);
+            total=quantity*item.getUnitPrice();
+        }
+        return total;
+    }
+    public void displayOrder() {
+        System.out.println("Order Date: " + orderdate);
+        for (int i=0; i<itemsList.size(); i++) {
+            Item item=itemsList.get(i);
+            int quantity=quantities.get(i);
+            System.out.println("Item: " + item.getName() + " --- Quantity Ordered: " + quantity+ "--- Category: " + item.getCategory().getName());
+        }
     }
     
 
