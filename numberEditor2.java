@@ -4,10 +4,6 @@ import java.util.ArrayList;
 public class numberEditor2 {
     private int[] array = new int[10];
     private int counter;
-    // private int[] trashArray = new int[10];
-    // private int trashCounter = 0;
-    // private int[] backupArray = new int[10];  // Stores the previous version of array
-    // private int backupCounter = 0;
     private ArrayList<int[]> historyList = new ArrayList<>();
     private ArrayList<Integer> counterList = new ArrayList<>();     
     private void saveBackup() {

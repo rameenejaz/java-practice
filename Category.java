@@ -32,7 +32,7 @@ public class Category {
         this.quantityOrdered=quantityOrdered;
     }
     public void addQtyToOrder(int qty) {
-        quantityOrdered+=qty;
+        this.quantityOrdered+=qty;
     }
 
 }
