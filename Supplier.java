@@ -12,4 +12,14 @@ public class Supplier {
         this.name=name;
         this.city=city;
     }
+    public int getID() {
+        return ID;
+    }
+    public String getName() {
+        return name;
+    }
+    public String city() {
+        return city;
+    }
+    
 }
