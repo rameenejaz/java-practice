@@ -41,7 +41,7 @@ public class Item {
         return QtyOrdered;
     }
     public void setQtyOrdered(int QtyOrdered) {
-        this.QtyInStock=QtyInStock;
+        this.QtyOrdered=QtyOrdered;
     }
     public double getUnitPrice() {
         return unitPrice;
