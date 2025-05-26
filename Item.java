@@ -5,6 +5,7 @@ public class Item {
     private int QtyOrdered;
     private int QtyInStock;
     private double unitPrice;
+    private Category category;
     public Item() {
         ID=0;
         name="";
@@ -12,12 +13,13 @@ public class Item {
         QtyOrdered=0;
         unitPrice=0.0;
     }
-    public Item(int ID, String name, int QtyInStock, int QtyOrdered, double unitPrice) {
+    public Item(int ID, String name, int QtyInStock, int QtyOrdered, double unitPrice, Category category) {
         this.ID=ID;
         this.name=name;
         this.QtyInStock=QtyInStock;
         this.QtyOrdered=QtyOrdered;
         this.unitPrice=unitPrice;
+        this.category=category;
     }
     public int getID() {
         return ID;
@@ -51,6 +53,11 @@ public class Item {
     }
     public void reduceQuantity(int quantity) {
         QtyInStock-=quantity;
-        
+    }
+    public void setCategory(Category category) {
+        this.category=category;
+    } 
+    public Category getCategory() {
+        return category;
     }
 }
