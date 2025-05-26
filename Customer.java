@@ -43,6 +43,7 @@ public class Customer {
             if (o[i]>max) {
                 max=c.getTotalOrderPrice();
                 star=max;
+                
             }
         }
         if (star!=null) {
