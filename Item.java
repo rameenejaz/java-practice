@@ -21,6 +21,13 @@ public class Item {
         this.unitPrice=unitPrice;
         this.category=category;
     }
+    public Item(int ID,String name, int qty, double price, Category category) {
+        this.ID=ID;
+        this.name=name;
+        this.QtyInStock=qty;
+        this.unitPrice=price;
+        this.category=category;
+    }
     public int getID() {
         return ID;
     }
