@@ -146,7 +146,6 @@ public class GroceryStoreSystem {
         System.out.println("2. View Categories");
         System.out.print("Enter choice: ");
         int choice = input.nextInt();
-
         switch (choice) {
             case 1:
                 input.nextLine();
@@ -170,7 +169,6 @@ public class GroceryStoreSystem {
         System.out.println("2. View All Customers");
         System.out.print("Enter choice: ");
         int choice = input.nextInt();
-
         switch (choice) {
             case 1:
                 input.nextLine();

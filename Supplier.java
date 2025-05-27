@@ -2,6 +2,8 @@ public class Supplier {
     private int ID;
     private String name;
     private String city;
+    private String contact;
+
     public Supplier() {
         ID=0;
         name="";
@@ -26,6 +28,7 @@ public class Supplier {
     this.city = city;
     this.contact = contact;
 }
+
 
 
 }
