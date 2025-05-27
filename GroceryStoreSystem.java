@@ -50,33 +50,35 @@ public class GroceryStoreSystem {
             System.out.println("Enter category name");
             String catName=input.nextLine();
             Category category= findCategoryByName(catName);
+            if (category == null) {
+            System.out.println("Category not found.");
+            return;
+            }
+            items.add(new Item(itemID, name, qty, price, category));
+            System.out.println("Item added successfully.");
+            break;
 
-            break;
             case 2:
-            System.out.println("Enter the ID of the item to remove ");
-            int inputID=input.nextInt();
-            boolean found=false;
-            for (Item item: items) {
-                if (inputID==items.getID()) {
-                    items.remove();
-                    System.out.println("Item removed!!");
-                    found=true;
-                    return;
+                System.out.println("Enter the ID of the item to remove ");
+                int inputID=input.nextInt();
+                Item itemToRemove=findItemByID(inputID);
+                if (itemToRemove!=null) {
+                    items.remove(itemToRemove);
+                    System.out.println("Item removed.");
                 }
-                else {
-                     System.out.println("Invalid ID");
+                    else {
+                        System.out.println("Item not found");
+                    }
+                    break;
+                    case 3:
+                    for (Item item: items) {
+                        System.out.println(item);
+                    }
+                    break;
+                    default:
+                    System.out.println("Invalid Choice!");
                 }
-            }
-            break;
-            case 3:
-            for (Item item: items) {
-                System.out.println(items);
-            }
-            break;
-            default:
-            System.out.println("Invalid Choice!");
         }
-    }
     public static void manageOrders() {
         System.out.println("\n--- Manage Orders ---");
         System.out.println("1. Add/Place Order");
@@ -85,14 +87,159 @@ public class GroceryStoreSystem {
         int choice = input.nextInt();
         switch (choice) {
             case 1:
-            if (customers.isEmpty() || items.isEmpty()) {
-                 System.out.println("Please ensure at least one customer and item exist.");
+                if (customers.isEmpty() || items.isEmpty()) {
+                    System.out.println("Please ensure at least one customer and item exist.");
+                        return;
+                }
+                System.out.println("Enter the ID of the item");
+                for (Customer c: customers) {
+                    System.out.println(c);
+                }
+                System.out.print("Enter customer ID: ");
+                int custId = input.nextInt();
+                Customer customer = findCustomerByID(custId);
+                if (customer == null) {
+                    System.out.println("Customer not found.");
                     return;
-            }
-            System.out.println("Enter the ID of the item");
+                    }
+                System.out.print("Enter order date (dd mm yyyy): ");
+                int d=input.nextInt();
+                String m= input.nextLine();
+                int y=input.nextInt();
+                Date2 date=new Date2(d,m,y);
+                Order order=new Order(custId, date, customer);
+                order.setCustomer(customer);
+                while(true) {
+                    System.out.println("Available Items");
+                    for (Item i: items) {
+                        System.out.println(i);
+                    }
+                    System.out.print("Enter item ID to add (or -1 to exit)");
+                    int itemID=input.nextInt();
+                    if (itemID==-1) {
+                        break;
+                    }
+                    Item selectedItem=findItemByID(itemID);
+                    if(selectedItem==null) {
+                        System.out.println("Item not found");
+                        continue;
+                    }
+                    System.out.print("Enter quantity:");
+                    int qty=input.nextInt();
+                    order.addItem(selectedItem, qty);
+                }
+                orders.add(order);
+                System.out.println("Order placed successfully");
+            break;
+            case 2:
+                for (Order o: orders) {
+                    o.displayOrder();
+                }
+                break;
+            default:
+                System.out.println("Invalid Order!");
         }
     }
+    static void manageCategories() {
+        System.out.println("\n--- Manage Categories ---");
+        System.out.println("1. Add Category");
+        System.out.println("2. View Categories");
+        System.out.print("Enter choice: ");
+        int choice = input.nextInt();
+
+        switch (choice) {
+            case 1:
+                input.nextLine();
+                System.out.print("Enter category name: ");
+                String name = input.nextLine();
+                categories.add(new Category(name));
+                System.out.println("Category added.");
+                break;
+            case 2:
+                for (Category c : categories) {
+                    System.out.println(c);
+                }
+                break;
+            default:
+                System.out.println("Invalid choice.");
+        }
+    }
+    static void manageCustomers() {
+        System.out.println("\n--- Manage Customers ---");
+        System.out.println("1. Add Customer");
+        System.out.println("2. View All Customers");
+        System.out.print("Enter choice: ");
+        int choice = input.nextInt();
+
+        switch (choice) {
+            case 1:
+                input.nextLine();
+                System.out.print("Enter customer name: ");
+                String name = input.nextLine();
+                System.out.print("Enter address: ");
+                String address = input.nextLine();
+                System.out.print("Enter phone number: ");
+                String phone = input.nextLine();
+                System.out.print("Enter ID: ");
+                int id = input.nextInt();
+                customers.add(new Customer(name, address, phone, id));
+                System.out.println("Customer added.");
+                break;
+            case 2:
+                for (Customer c : customers) {
+                    System.out.println(c);
+                }
+                break;
+            default:
+                System.out.println("Invalid choice.");
+        }
+    }
+    static void manageSuppliers() {
+        System.out.println("\n--- Manage Suppliers ---");
+        System.out.println("1. Add Supplier");
+        System.out.println("2. View Suppliers");
+        System.out.print("Enter choice: ");
+        int choice = input.nextInt();
+        switch (choice) {
+            case 1:
+                input.nextLine();
+                System.out.print("Enter supplier name: ");
+                String name = input.nextLine();
+                System.out.print("Enter city: ");
+                String city = input.nextLine();
+                System.out.print("Enter contact: ");
+                String contact = input.nextLine();
+                suppliers.add(new Supplier(name, city, contact));
+                System.out.println("Supplier added.");
+                break;
+            case 2:
+                for (Supplier s : suppliers) {
+                    System.out.println(s);
+                }
+                break;
+            default:
+                System.out.println("Invalid choice.");
+        }
+    }
+    static void addSampleData() {
+        // Add sample categories
+        categories.add(new Category("Beverages"));
+        categories.add(new Category("Snacks"));
+
+        // Add sample items
+        items.add(new Item(101, "Pepsi", 50, 50.0, categories.get(0)));
+        items.add(new Item(102, "Lays", 100, 30.0, categories.get(1)));
+
+        // Add sample customers
+        customers.add(new Customer("Ali", "Lahore", "03001234567", 201));
+        customers.add(new Customer("Sara", "Karachi", "03007654321", 202));
+
+        // Add sample suppliers
+        suppliers.add(new Supplier("ABC Traders", "Lahore", "042-1234567"));
+        suppliers.add(new Supplier("XYZ Wholesalers", "Karachi", "021-7654321"));
+    }
     public static void main(String[] args) {
+        addSampleData();
         int option=-99;
         while(option!=0){
             displayMainMenu();
@@ -100,14 +247,25 @@ public class GroceryStoreSystem {
             input.nextLine();
             switch(option) {
                 case 1:
-
+                manageItems(); 
+                break;
                 case 2:
+                manageOrders();
+                break;
                 case 3:
+                manageCategories();
+                break;
                 case 4:
+                manageCustomers();
+                break;
                 case 5:
+                manageSuppliers();
+                break;
                 case 0:
+                System.out.println("Exiting the program!");
+                break;
                 default:
-
+                System.out.println("Invalid choice. Try again!");
             }
         }
     }
@@ -116,24 +274,23 @@ public class GroceryStoreSystem {
             if (c.getName().equalsIgnoreCase(name)) {
                 return c;
             }
-            return null;
         }
+        return null;
     }
     public static Customer findCustomerByID(int ID) {
         for (Customer c: customers) {
             if(c.getID()==ID) {
                 return c;
             }
-            return null;
         }
+        return null;
     }
     public static Item findItemByID(int ID) {
         for (Item i: items) {
             if (i.getID()== ID) {
                 return i;
             }
-            return null;
         }
+        return null;
     }
-
 }

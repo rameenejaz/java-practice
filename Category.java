@@ -8,6 +8,9 @@ public class Category {
         name="";
         quantityOrdered=0;
     }
+    public Category(String name) {
+        this.name=name;
+    }
     public Category(int ID, String name, int quantityOrdered) {
         this.ID=ID;
         this.name=name;

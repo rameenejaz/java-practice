@@ -21,5 +21,11 @@ public class Supplier {
     public String getCity() {
         return city;
     }
+    public Supplier(String name, String city, String contact) {
+    this.name = name;
+    this.city = city;
+    this.contact = contact;
+}
+
 
 }
