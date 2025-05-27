@@ -51,4 +51,11 @@ public class Customer {
             System.out.println("No orders were placed this month!");
         }
     }
+    public Customer(String name, String address, String phone, int id) {
+    this.name = name;
+    this.address = address;
+    this.phone = phone;
+    this.id = id;
+}
+
 }
