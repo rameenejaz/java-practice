@@ -43,8 +43,11 @@ public class Order {
     public Customer getCustomer() {
         return customer;
     }
-    public Date getOrderDate() {
+    public Date2 getOrderDate() {
         return orderdate;
+    }
+    public void setCustomer(Customer customer) {
+        this.customer=customer;
     }
     public Date2 date () {
         return orderdate;

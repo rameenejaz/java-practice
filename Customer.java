@@ -38,7 +38,7 @@ public class Customer {
         Customer star=null;
         double max=0;
         for (Order o: orders) {
-            Customer c=o.getCustomer();
+            Customer c =o.getCustomer();
             if (c.getTotalOrderPrice()>max) {
                 max=c.totalOrderPrice();
                 star=c;

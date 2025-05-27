@@ -25,25 +25,25 @@ public class GroceryStoreSystem {
         System.out.println("3. View Items in Stock");
         System.out.println("--------------------------");
         System.out.print("Enter choice: ");
-        int choice = scanner.nextInt();
+        int choice = input.nextInt();
         switch(choice) {
             case 1:
             input.nextLine();
             System.out.print("Enter item name:");
             String name=input.nextLine();
             System.out.print("Enter item ID:");
-            String itemID=input.nextInt();
+            int itemID=input.nextInt();
             input.nextLine();
             System.out.print("Enter quantity in stock: ");
-            int qty = scanner.nextInt();
+            int qty = input.nextInt();
             System.out.print("Enter unit price: ");
-            double price = scanner.nextDouble();
+            double price = input.nextDouble();
             if (categories.isEmpty()) {
                 System.out.println("No categories available. Please add a category first!");
                 return;
             }
             System.out.println("Available Categories");
-            for (int Category c: categories) {
+            for (Category c: categories) {
                 System.out.println(c);
             }
             input.nextLine();
@@ -55,10 +55,10 @@ public class GroceryStoreSystem {
             case 2:
             System.out.println("Enter the ID of the item to remove ");
             int inputID=input.nextInt();
-            bool found=false;
-            for (Items item: items) {
-                if (inputID==item.getID) {
-                    item.remove();
+            boolean found=false;
+            for (Item item: items) {
+                if (inputID==items.getID()) {
+                    items.remove();
                     System.out.println("Item removed!!");
                     found=true;
                     return;
@@ -69,7 +69,7 @@ public class GroceryStoreSystem {
             }
             break;
             case 3:
-            for (Items item: item) {
+            for (Item item: items) {
                 System.out.println(items);
             }
             break;
@@ -82,7 +82,7 @@ public class GroceryStoreSystem {
         System.out.println("1. Add/Place Order");
         System.out.println("2. View Orders");
         System.out.print("Enter choice: ");
-        int choice = scanner.nextInt();
+        int choice = input.nextInt();
         switch (choice) {
             case 1:
             if (customers.isEmpty() || items.isEmpty()) {
@@ -112,7 +112,7 @@ public class GroceryStoreSystem {
         }
     }
     public static Category findCategoryByName(String name) {
-        for (Category c:customers) {
+        for (Category c: categories) {
             if (c.getName().equalsIgnoreCase(name)) {
                 return c;
             }
@@ -127,8 +127,8 @@ public class GroceryStoreSystem {
             return null;
         }
     }
-    public static findItemByID(int ID) {
-        for (Items i: items) {
+    public static Item findItemByID(int ID) {
+        for (Item i: items) {
             if (i.getID()== ID) {
                 return i;
             }
