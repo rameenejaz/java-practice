@@ -4,6 +4,10 @@ public class Customer {
     private int ID;
     private String name;
     private double totalOrderPrice;
+    private String address;
+    private String phone;
+    private int id;
+    private ArrayList<Order> orders;
     public Customer() {
         ID=0;
         name="";
@@ -57,5 +61,13 @@ public class Customer {
     this.phone = phone;
     this.id = id;
 }
+public double totalOrderPrice() {
+    double total = 0;
+    for (Order o : orders) {
+        total += o.getTotalPrice();
+    }
+    return total;
+}
+
 
 }

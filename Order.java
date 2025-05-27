@@ -69,6 +69,13 @@ public class Order {
             System.out.println("Item: " + item.getName() + " --- Quantity Ordered: " + quantity+ "--- Category: " + item.getCategory().getName());
         }
     }
+    public double getTotalPrice() {
+        double total = 0;
+        for (Item item : itemsList) {
+            total += item.getUnitPrice() * item.getQtyOrdered();
+        }
+        return total;
+    }
     
 
 }
