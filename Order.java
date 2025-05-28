@@ -6,12 +6,14 @@ public class Order {
     private Date2 orderdate;
     private ArrayList <Item> itemsList;
     private ArrayList <Integer> quantities;
+
     public Order(int customerID, Date2 orderDate, Customer customer) {
         this.customer=customer;
         this.customerID=customerID;
         this.orderdate=orderDate;
         this.itemsList=new ArrayList<>();
         this.quantities=new ArrayList<>();
+        this.customer.addOrder(this);
     }
     public void addItem(Item item, int quantity) {
         if (quantity<=0 || quantity>item.getQtyInStock()) {
@@ -76,5 +78,4 @@ public class Order {
         }
         return total;
     }
-    
 }
