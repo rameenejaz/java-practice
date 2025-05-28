@@ -28,7 +28,4 @@ public class Supplier {
     this.city = city;
     this.contact = contact;
 }
-
-
-
 }

@@ -68,6 +68,4 @@ public double totalOrderPrice() {
     }
     return total;
 }
-
-
 }
