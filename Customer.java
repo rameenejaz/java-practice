@@ -9,14 +9,17 @@ public class Customer {
     private int id;
     private ArrayList<Order> orders;
     public Customer() {
-        ID=0;
-        name="";
-        totalOrderPrice=0;
+        this.ID=0;
+        this.name="";
+        this.totalOrderPrice=0;
+        this.orders=new ArrayList<>();
     }
-    public Customer(int ID, String name, double totalOrderPrice) {
+    public Customer(int ID, String name,String address, String phone, double totalOrderPrice) {
         this.ID=ID;
         this.name=name;
         this.totalOrderPrice =totalOrderPrice ;
+        this.address = address;
+        this.phone = phone;
     }
     public int getID() {
         return ID;
@@ -33,10 +36,10 @@ public class Customer {
     public double getTotalOrderPrice() {
         return totalOrderPrice;
     }
-    public double addToTotalPrice(double price) {
-        totalOrderPrice+=price;
-        return totalOrderPrice;
-    }
+    // public double addToTotalPrice(double price) {
+    //     totalOrderPrice+=price;
+    //     return totalOrderPrice;
+    // }
     //function for the star of the month
     public static void displayStarOfMonth(ArrayList<Order> orders) {
         Customer star=null;
@@ -67,5 +70,11 @@ public double totalOrderPrice() {
         total += o.getTotalPrice();
     }
     return total;
+}
+public void addOrder(Order order) {
+        orders.add(order);
+    }
+public ArrayList<Order> getOrders() {
+    return orders;
 }
 }
