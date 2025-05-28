@@ -67,4 +67,11 @@ public class Item {
     public Category getCategory() {
         return category;
     }
+    @Override
+    public String toString() {
+        return "Item Name: " + name +
+            ", Unit Price: $" + unitPrice +
+            ", Quantity in Stock: " + qtyInStock +
+            ", Category: " + category.getName();
+    }
 }
