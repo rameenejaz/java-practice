@@ -6,13 +6,12 @@ public class Customer {
     private double totalOrderPrice;
     private String address;
     private String phone;
-    private int id;
     private ArrayList<Order> orders;
     public Customer() {
-        this.ID=0;
-        this.name="";
-        this.totalOrderPrice=0;
-        this.orders=new ArrayList<>();
+        ID=0;
+        name="";
+        totalOrderPrice=0;
+        orders=new ArrayList<>();
     }
     public Customer(int ID, String name,String address, String phone, double totalOrderPrice) {
         this.ID=ID;
@@ -20,6 +19,7 @@ public class Customer {
         this.totalOrderPrice =totalOrderPrice ;
         this.address = address;
         this.phone = phone;
+        this.orders=new ArrayList<>();
     }
     public int getID() {
         return ID;
@@ -58,23 +58,29 @@ public class Customer {
             System.out.println("No orders were placed this month!");
         }
     }
-    public Customer(String name, String address, String phone, int id) {
+    public Customer(String name, String address, String phone, int ID) {
     this.name = name;
     this.address = address;
     this.phone = phone;
-    this.id = id;
+    this.ID = ID;
+    this.orders=new ArrayList<>();
 }
-public double totalOrderPrice() {
-    double total = 0;
-    for (Order o : orders) {
-        total += o.getTotalPrice();
+    public double totalOrderPrice() {
+        double total = 0;
+        for (Order o : orders) {
+            total += o.getTotalPrice();
+        }
+        return total;
     }
-    return total;
-}
-public void addOrder(Order order) {
-        orders.add(order);
+    public void addOrder(Order order) {
+            orders.add(order);
+        }
+    public ArrayList<Order> getOrders() {
+        return orders;
     }
-public ArrayList<Order> getOrders() {
-    return orders;
-}
+    @Override
+    public String toString() {
+            return "Customer ID: " + ID + ", Name:" + name + ", Address: " + address +
+            " ,Phone: " + phone + ",Total Order Price: $" + totalOrderPrice;
+        }
 }

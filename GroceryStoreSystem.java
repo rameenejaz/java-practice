@@ -102,10 +102,15 @@ public class GroceryStoreSystem {
                     System.out.println("Customer not found.");
                     return;
                     }
-                System.out.print("Enter order date (dd mm yyyy): ");
+                System.out.println("Enter order date (dd month yyyy): ");
+                System.out.print("Enter day:");
                 int d=input.nextInt();
+                input.nextLine();
+                System.out.print("Enter month:");
                 String m= input.nextLine();
+                System.out.print("Enter year:");
                 int y=input.nextInt();
+                input.nextLine();   
                 Date2 date=new Date2(d,m,y);
                 Order order=new Order(custId, date, customer);
                 order.setCustomer(customer);

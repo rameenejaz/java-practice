@@ -69,9 +69,6 @@ public class Item {
     }
     @Override
     public String toString() {
-        return "Item Name: " + name +
-            ", Unit Price: $" + unitPrice +
-            ", Quantity in Stock: " + qtyInStock +
-            ", Category: " + category.getName();
+        return "Item Name: " + name + ", ID: " + ID + ", Unit Price: $" + unitPrice + ", Quantity in Stock: " + QtyInStock +", Category: " + category.getName();
     }
 }

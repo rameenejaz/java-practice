@@ -27,5 +27,8 @@ public class Supplier {
     this.name = name;
     this.city = city;
     this.contact = contact;
-}
+    } 
+    public String toString() {
+        return "ID: " + ID +", Name: " + name + ", City: " +city + ", Contact: " + contact;
+    }  
 }

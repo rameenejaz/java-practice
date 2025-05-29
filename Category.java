@@ -37,5 +37,8 @@ public class Category {
     public void addQtyToOrder(int qty) {
         this.quantityOrdered+=qty;
     }
+    public String toString () {
+        return "ID: " + ID + ", Name: " +name +", Quantity Ordered" + quantityOrdered;
+    }
 
 }
