@@ -104,7 +104,7 @@ public class GroceryStoreSystem {
                 if (customer == null) {
                     System.out.println("Customer not found.");
                     return;
-                    }
+                }
                 System.out.println("Enter order date (dd month yyyy): ");
                 System.out.print("Enter day:");
                 int d=input.nextInt();
@@ -146,9 +146,12 @@ public class GroceryStoreSystem {
                 System.out.println();
             break;
             case 2:
+                System.out.println("------------------------------------------------------");
                 for (Order o: orders) {
                     o.displayOrder();
                 }
+                System.out.println();
+                System.out.println("------------------------------------------------------");                
                 break;
             default:
                 System.out.println("Invalid Order!");
