@@ -48,8 +48,9 @@ public class GroceryStoreSystem {
                 System.out.println(c);
             }
             input.nextLine();
-            System.out.println("Enter category name");
+            System.out.print("Enter category name:");
             String catName=input.nextLine();
+            System.out.println("---------------------------");
             Category category= findCategoryByName(catName);
             if (category == null) {
             System.out.println("Category not found.");
@@ -57,8 +58,8 @@ public class GroceryStoreSystem {
             }
             items.add(new Item(itemID, name, qty, price, category));
             System.out.println("Item added successfully.");
+            System.out.println();
             break;
-
             case 2:
                 System.out.print("Enter the ID of the item to remove:");
                 int inputID=input.nextInt();
@@ -145,11 +146,13 @@ public class GroceryStoreSystem {
                 System.out.println("Order placed successfully");
                 System.out.println();
             break;
+
             case 2:
                 System.out.println("------------------------------------------------------");
                 for (Order o: orders) {
                     o.displayOrder();
                 }
+                System.out.println("Cart Price: $" + totalOrderPrice());
                 System.out.println();
                 System.out.println("------------------------------------------------------");                
                 break;
@@ -285,7 +288,7 @@ public class GroceryStoreSystem {
                 }
                 else {
                     for (Supplier s: suppliers) {
-                        System.out.println(c);
+                        System.out.println(s);
                     }
                     System.out.println();
                 }
@@ -300,10 +303,10 @@ public class GroceryStoreSystem {
     }
     public static void addSampleData() {
        // Add sample categories
-    categories.add(new Category("Beverages"));  // index 0
-    categories.add(new Category("Snacks"));     // index 1
-    categories.add(new Category("Dairy"));      // index 2
-    categories.add(new Category("Produce"));    // index 3
+    categories.add(new Category(125,"Beverages"));  // index 0
+    categories.add(new Category(126,"Snacks"));     // index 1
+    categories.add(new Category(155,"Dairy"));      // index 2
+    categories.add(new Category(140,"Produce"));    // index 3
 
     // Add sample items
     items.add(new Item(101, "Milk", 50, 3.5, categories.get(2)));        // Dairy
