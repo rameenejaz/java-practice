@@ -14,6 +14,7 @@ public class GroceryStoreSystem {
         System.out.println("3. Manage Categories");
         System.out.println("4. Manage Customers");
         System.out.println("5. Manage Supplier Information");
+        System.out.println("6. Display Star Customer of the Month");
         System.out.println("0. To exit");
         System.out.println("------------------------------------");
         System.out.print("Choose one of the following options (1-5) or 0 to exit: ");
@@ -42,7 +43,7 @@ public class GroceryStoreSystem {
                 System.out.println("No categories available. Please add a category first!");
                 return;
             }
-            System.out.println("Available Categories");
+            System.out.println("------Available Categories-------");
             for (Category c: categories) {
                 System.out.println(c);
             }
@@ -59,7 +60,7 @@ public class GroceryStoreSystem {
             break;
 
             case 2:
-                System.out.println("Enter the ID of the item to remove ");
+                System.out.print("Enter the ID of the item to remove:");
                 int inputID=input.nextInt();
                 Item itemToRemove=findItemByID(inputID);
                 if (itemToRemove!=null) {
@@ -70,13 +71,13 @@ public class GroceryStoreSystem {
                         System.out.println("Item not found");
                     }
                     break;
-                    case 3:
-                    for (Item item: items) {
+            case 3:
+                for (Item item: items) {
                         System.out.println(item);
-                    }
-                    break;
-                    default:
-                    System.out.println("Invalid Choice!");
+                }
+                break;
+            default:
+                System.out.println("Invalid Choice!");
                 }
         }
     public static void manageOrders() {
@@ -263,6 +264,10 @@ public class GroceryStoreSystem {
                 break;
                 case 5:
                 manageSuppliers();
+                break;
+                case 6:
+                case 6:
+                Customer.displayStarOfMonth(allOrders); // pass your actual orders list
                 break;
                 case 0:
                 System.out.println("Exiting the program!");
