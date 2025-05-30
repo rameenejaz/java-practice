@@ -16,6 +16,10 @@ public class Category {
         this.name=name;
         this.quantityOrdered=quantityOrdered;
     }
+    public Category(int ID, String name) {
+        this.ID=ID;
+        this.name=name;
+    }
     public int getID() {
         return ID;
     }

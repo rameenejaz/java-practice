@@ -54,21 +54,21 @@ public class Order {
     public Date2 date () {
         return orderdate;
     }
-    public double calculateTotalPrice() {
-        double total=0;
-        for (int i=0; i<itemsList.size(); i++) {
-            Item item=itemsList.get(i);
-            int quantity=quantities.get(i);
-            total=quantity*item.getUnitPrice();
-        }
-        return total;
-    }
+    // public double calculateTotalPrice() {
+    //     double total=0;
+    //     for (int i=0; i<itemsList.size(); i++) {
+    //         Item item=itemsList.get(i);
+    //         int quantity=quantities.get(i);
+    //         total=quantity*item.getUnitPrice();
+    //     }
+    //     return total;
+    // }
     public void displayOrder() {
         System.out.println("Order Date: " + orderdate);
         for (int i=0; i<itemsList.size(); i++) {
             Item item=itemsList.get(i);
             int quantity=quantities.get(i);
-            System.out.println("Item: " + item.getName() + " --- Quantity Ordered: " + quantity+ "--- Category: " + item.getCategory().getName());
+            System.out.println("Item: " + item.getName() + " --- Quantity Ordered: " + quantity+ "--- Category: " + item.getCategory().getName() + "--- Price: " + item.getUnitPrice()*item.getQtyOrdered());
         }
     }
     public double getTotalPrice() {

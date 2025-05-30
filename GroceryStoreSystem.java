@@ -151,8 +151,8 @@ public class GroceryStoreSystem {
                 System.out.println("------------------------------------------------------");
                 for (Order o: orders) {
                     o.displayOrder();
+                    System.out.println("Cart Price: $" + o.getTotalPrice());
                 }
-                System.out.println("Cart Price: $" + totalOrderPrice());
                 System.out.println();
                 System.out.println("------------------------------------------------------");                
                 break;
