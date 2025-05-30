@@ -264,11 +264,38 @@ public class GroceryStoreSystem {
                 Report2.viewOrdersByDate(orders, date);
                 break;
                 case 2:
+                System.out.print("Enter the city:");
+                String city=input.nextLine();
+                Report2.listSuppliersByCity(suppliers, city);
+                break;
                 case 3:
+                if (customers.isEmpty()) {
+                    System.out.println("No registered customerspresent!");
+                }
+                else {
+                    for (Customer c: customers) {
+                        System.out.println(c);
+                    }
+                    System.out.println();
+                }
+                break;
                 case 4:
+                if (suppliers.isEmpty()) {
+                    System.out.println("No suppliers present!");
+                }
+                else {
+                    for (Supplier s: suppliers) {
+                        System.out.println(c);
+                    }
+                    System.out.println();
+                }
+                break;
                 case 0:
+                System.out.println("Returning to main menu...");
                 default:
+                System.out.println("Invalid choice!");
             }
+            System.out.println();
         }
     }
     public static void addSampleData() {
@@ -327,7 +354,7 @@ public class GroceryStoreSystem {
                 Customer.displayStarOfMonth(orders); // pass your actual orders list
                 break;
                 case 7:
-
+                viewReports();
                 break;
                 case 0:
                 System.out.println("Exiting the program!");
