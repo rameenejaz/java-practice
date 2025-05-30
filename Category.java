@@ -42,7 +42,8 @@ public class Category {
         this.quantityOrdered+=qty;
     }
     public String toString () {
-        return "---ID: " + ID + " --- Name: " +name +" --- Quantity Ordered: " + quantityOrdered +" ---";
+        System.out.println("--------------------------------------------------------------------------------");
+        return "ID: " + ID + " Name: " +name +" Quantity Ordered: " + quantityOrdered;
     }
 
 }

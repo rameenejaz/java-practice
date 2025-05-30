@@ -3,15 +3,22 @@ import java.util.ArrayList;
 public class Customer {
     private int ID;
     private String name;
-    private double totalOrderPrice;
+    // private double totalOrderPrice;
     private String address;
     private String phone;
     private ArrayList<Order> orders;
     public Customer() {
         ID=0;
         name="";
-        totalOrderPrice=0;
+        // totalOrderPrice=0;
         orders=new ArrayList<>();
+    }
+    public double totalOrderPrice() {
+        double total = 0;
+        for (Order o : orders) {
+            total += o.getTotalPrice();
+        }
+        return total;
     }
     public Customer(int ID, String name,String address, String phone, double totalOrderPrice) {
         this.ID=ID;
@@ -46,8 +53,8 @@ public class Customer {
         double max=0;
         for (Order o: orders) {
             Customer c =o.getCustomer();
-            if (c.getTotalOrderPrice()>max) {
-                max=c.getTotalOrderPrice();
+            if (c.totalOrderPrice()>max) {
+                max=c.totalOrderPrice();
                 star=c;
             }
         }
@@ -65,13 +72,6 @@ public class Customer {
     this.ID = ID;
     this.orders=new ArrayList<>();
 }
-    public double totalOrderPrice() {
-        double total = 0;
-        for (Order o : orders) {
-            total += o.getTotalPrice();
-        }
-        return total;
-    }
     public void addOrder(Order order) {
             orders.add(order);
         }
