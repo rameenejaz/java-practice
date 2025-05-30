@@ -236,7 +236,42 @@ public class GroceryStoreSystem {
                 System.out.println("Invalid choice.");
         }
     }
-    static void addSampleData() {
+    public static void viewReports() {
+        int choice=-1;
+        while(choice!=0) {
+            System.out.println("--------------------------------");
+            System.out.println("--- Viewing Reports ---");
+            System.out.println("1. View orders by date");
+            System.out.println("2. View suppliers by city");
+            System.out.println("3. View all customers");
+            System.out.println("4. View all suppliers");
+            System.out.println("0. To exit");
+            System.out.println("--------------------------------");
+            System.out.println("Enter your choice (1-4) or 0 to exit: ");
+            choice=input.nextInt();
+            input.nextLine();
+            switch(choice) {
+                case 1:
+                System.out.print("Enter the day:");
+                int day= input.nextInt();
+                input.nextLine();
+                System.out.print("Enter the month (as a word): ");
+                String month= input.nextLine();
+                System.out.print("Enter the year: ");
+                int year=input.nextInt();
+                input.nextLine();
+                Date2 date= new Date2(day, month, year);
+                Report2.viewOrdersByDate(orders, date);
+                break;
+                case 2:
+                case 3:
+                case 4:
+                case 0:
+                default:
+            }
+        }
+    }
+    public static void addSampleData() {
        // Add sample categories
     categories.add(new Category("Beverages"));  // index 0
     categories.add(new Category("Snacks"));     // index 1
@@ -290,6 +325,9 @@ public class GroceryStoreSystem {
                 break;
                 case 6:
                 Customer.displayStarOfMonth(orders); // pass your actual orders list
+                break;
+                case 7:
+
                 break;
                 case 0:
                 System.out.println("Exiting the program!");
