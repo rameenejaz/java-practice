@@ -81,11 +81,13 @@ public class GroceryStoreSystem {
                 }
         }
     public static void manageOrders() {
+        System.out.println("-----------------------------------");
         System.out.println("\n--- Manage Orders ---");
         System.out.println("1. Add/Place Order");
         System.out.println("2. View Orders");
         System.out.print("Enter choice: ");
         int choice = input.nextInt();
+        System.out.println("-----------------------------------");
         switch (choice) {
             case 1:
                 if (customers.isEmpty() || items.isEmpty()) {
@@ -116,11 +118,14 @@ public class GroceryStoreSystem {
                 Order order=new Order(custId, date, customer);
                 order.setCustomer(customer);
                 while(true) {
+                    System.out.println("-------------------------------------------------------------------------------------------");
                     System.out.println("Available Items");
                     for (Item i: items) {
                         System.out.println(i);
                     }
-                    System.out.print("Enter item ID to add (or -1 to exit)");
+                    System.out.println("-------------------------------------------------------------------------------------------");
+                    System.out.println();
+                    System.out.print("Enter item ID to add (or -1 to exit): ");
                     int itemID=input.nextInt();
                     if (itemID==-1) {
                         break;
@@ -133,9 +138,12 @@ public class GroceryStoreSystem {
                     System.out.print("Enter quantity:");
                     int qty=input.nextInt();
                     order.addItem(selectedItem, qty);
+                    System.out.println(selectedItem.getName() + " added to cart!");
                 }
                 orders.add(order);
+                System.out.println();
                 System.out.println("Order placed successfully");
+                System.out.println();
             break;
             case 2:
                 for (Order o: orders) {
@@ -250,9 +258,9 @@ public class GroceryStoreSystem {
     customers.add(new Customer("Fatima", "Multan", "03005556666", 205));
 
     // Add sample suppliers
-    suppliers.add(new Supplier("ABC Traders", "Lahore", "042-1234567"));
-    suppliers.add(new Supplier("XYZ Wholesalers", "Karachi", "021-7654321"));
-    suppliers.add(new Supplier("FreshFarms Ltd.", "Islamabad", "051-7894561"));
+    suppliers.add(new Supplier(100,"ABC Traders", "Lahore", "042-1234567"));
+    suppliers.add(new Supplier(200, "XYZ Wholesalers", "Karachi", "021-7654321"));
+    suppliers.add(new Supplier(300,"FreshFarms Ltd.", "Islamabad", "051-7894561"));
     }
     public static void main(String[] args) {
         addSampleData();
@@ -278,8 +286,7 @@ public class GroceryStoreSystem {
                 manageSuppliers();
                 break;
                 case 6:
-                case 6:
-                Customer.displayStarOfMonth(allOrders); // pass your actual orders list
+                Customer.displayStarOfMonth(orders); // pass your actual orders list
                 break;
                 case 0:
                 System.out.println("Exiting the program!");

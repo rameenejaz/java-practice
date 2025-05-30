@@ -29,8 +29,8 @@ public class Order {
         item.getCategory().addQtyToOrder(quantity);
         double cost=quantity*item.getUnitPrice();
         // customer.totalOrderPrice(cost);
-        if(item.getQtyInStock()<10) {
-            System.out.println("Warning! Stock for " + item.getName() + " is less than 10!");
+        if(item.getQtyInStock()<50) {
+            System.out.println("Warning! Stock for " + item.getName() + " is less than 50!");
         }
     }
     public void viewOrder() {
