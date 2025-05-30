@@ -226,21 +226,33 @@ public class GroceryStoreSystem {
         }
     }
     static void addSampleData() {
-        // Add sample categories
-        categories.add(new Category("Beverages"));
-        categories.add(new Category("Snacks"));
+       // Add sample categories
+    categories.add(new Category("Beverages"));  // index 0
+    categories.add(new Category("Snacks"));     // index 1
+    categories.add(new Category("Dairy"));      // index 2
+    categories.add(new Category("Produce"));    // index 3
 
-        // Add sample items
-        items.add(new Item(101, "Pepsi", 50, 50.0, categories.get(0)));
-        items.add(new Item(102, "Lays", 100, 30.0, categories.get(1)));
+    // Add sample items
+    items.add(new Item(101, "Milk", 50, 3.5, categories.get(2)));        // Dairy
+    items.add(new Item(102, "Chips", 100, 1.5, categories.get(1)));      // Snacks
+    items.add(new Item(103, "Juice", 60, 2.0, categories.get(0)));       // Beverages
+    items.add(new Item(104, "Apples", 80, 0.8, categories.get(3)));      // Produce
+    items.add(new Item(105, "Cheese", 40, 4.0, categories.get(2)));      // Dairy
+    items.add(new Item(106, "Biscuits", 90, 1.2, categories.get(1)));    // Snacks
+    items.add(new Item(107, "Yogurt", 30, 2.5, categories.get(2)));      // Dairy
+    items.add(new Item(108, "Bananas", 100, 0.6, categories.get(3)));    // Produce
 
-        // Add sample customers
-        customers.add(new Customer("Ali", "Lahore", "03001234567", 201));
-        customers.add(new Customer("Sara", "Karachi", "03007654321", 202));
+    // Add sample customers
+    customers.add(new Customer("Ali", "Lahore", "03001234567", 201));
+    customers.add(new Customer("Sara", "Karachi", "03007654321", 202));
+    customers.add(new Customer("Zainab", "Islamabad", "03009876543", 203));
+    customers.add(new Customer("Usman", "Faisalabad", "03001112222", 204));
+    customers.add(new Customer("Fatima", "Multan", "03005556666", 205));
 
-        // Add sample suppliers
-        suppliers.add(new Supplier("ABC Traders", "Lahore", "042-1234567"));
-        suppliers.add(new Supplier("XYZ Wholesalers", "Karachi", "021-7654321"));
+    // Add sample suppliers
+    suppliers.add(new Supplier("ABC Traders", "Lahore", "042-1234567"));
+    suppliers.add(new Supplier("XYZ Wholesalers", "Karachi", "021-7654321"));
+    suppliers.add(new Supplier("FreshFarms Ltd.", "Islamabad", "051-7894561"));
     }
     public static void main(String[] args) {
         addSampleData();
