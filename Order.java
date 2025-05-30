@@ -68,7 +68,7 @@ public class Order {
         for (int i=0; i<itemsList.size(); i++) {
             Item item=itemsList.get(i);
             int quantity=quantities.get(i);
-            System.out.println("Item: " + item.getName() + " --- Quantity Ordered: " + quantity+ "--- Category: " + item.getCategory().getName() + "--- Price: " + item.getUnitPrice()*item.getQtyOrdered());
+            System.out.println("Item: " + item.getName() + " --- Quantity Ordered: " + quantity+ "--- Category: " + item.getCategory().getName() + "--- Price of one: " + item.getUnitPrice());
         }
     }
     public double getTotalPrice() {

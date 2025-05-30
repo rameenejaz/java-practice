@@ -11,7 +11,7 @@ public class Report2 {
             }
         }
         if (!found) {
-            System.out.println("No orders on this data");
+            System.out.println("No orders on this date");
         }
     }
     public static void listSuppliersByCity(ArrayList <Supplier> suppliers, String city) {

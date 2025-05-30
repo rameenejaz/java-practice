@@ -48,13 +48,16 @@ public class Customer {
     public static void displayStarOfMonth(ArrayList<Order> orders) {
         Customer star=null;
         double max=0;
-        for (Order o: orders) {
-            Customer c =o.getCustomer();
-            if (c.totalOrderPrice()>max) {
-                max=c.totalOrderPrice();
-                star=c;
-            }
+         for (Customer c : customers) {
+        double total = 0;
+        for (Order o : c.getOrders()) {
+            total += o.getTotalPrice();
         }
+        if (total > maxTotal) {
+            maxTotal = total;
+            star = c;
+        }
+    }
         if (star!=null) {
             System.out.println("Star of the month: " + star.getName());
         }
