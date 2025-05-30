@@ -15,6 +15,7 @@ public class GroceryStoreSystem {
         System.out.println("4. Manage Customers");
         System.out.println("5. Manage Supplier Information");
         System.out.println("6. Display Star Customer of the Month");
+        System.out.println("7. To view Reports");
         System.out.println("0. To exit");
         System.out.println("------------------------------------");
         System.out.print("Choose one of the following options (1-5) or 0 to exit: ");

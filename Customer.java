@@ -23,7 +23,7 @@ public class Customer {
     public Customer(int ID, String name,String address, String phone, double totalOrderPrice) {
         this.ID=ID;
         this.name=name;
-        this.totalOrderPrice =totalOrderPrice ;
+        // this.totalOrderPrice =totalOrderPrice ;
         this.address = address;
         this.phone = phone;
         this.orders=new ArrayList<>();
@@ -39,9 +39,6 @@ public class Customer {
     }
     public void setName(String name) {
         this.name=name;
-    }
-    public double getTotalOrderPrice() {
-        return totalOrderPrice;
     }
     // public double addToTotalPrice(double price) {
     //     totalOrderPrice+=price;
@@ -81,6 +78,6 @@ public class Customer {
     @Override
     public String toString() {
             return "Customer ID: " + ID + ", Name:" + name + ", Address: " + address +
-            " ,Phone: " + phone + ",Total Order Price: $" + totalOrderPrice;
+            " ,Phone: " + phone + ",Total Order Price: $" + totalOrderPrice();
         }
 }
