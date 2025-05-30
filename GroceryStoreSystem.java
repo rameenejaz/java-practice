@@ -143,6 +143,7 @@ public class GroceryStoreSystem {
                     System.out.println(selectedItem.getName() + " added to cart!");
                 }
                 orders.add(order);
+                customer.addOrder(order);
                 System.out.println();
                 System.out.println("Order placed successfully");
                 System.out.println();
@@ -274,7 +275,7 @@ public class GroceryStoreSystem {
                 break;
                 case 3:
                 if (customers.isEmpty()) {
-                    System.out.println("No registered customerspresent!");
+                    System.out.println("No registered customers present!");
                 }
                 else {
                     for (Customer c: customers) {
@@ -296,6 +297,7 @@ public class GroceryStoreSystem {
                 break;
                 case 0:
                 System.out.println("Returning to main menu...");
+                break;
                 default:
                 System.out.println("Invalid choice!");
             }
