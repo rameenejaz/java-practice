@@ -9,7 +9,7 @@ public class Supplier {
         name="";
         city="";
     }
-    public Supplier(int ID, String name, String cit, String contact) {
+    public Supplier(int ID, String name, String city, String contact) {
         this.contact = contact;
         this.ID=ID;
         this.name=name;

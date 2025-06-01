@@ -78,4 +78,8 @@ public class Order {
         }
         return total;
     }
+    public Date2 getDate() {
+    return orderdate;
+}
+
 }

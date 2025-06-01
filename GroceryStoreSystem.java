@@ -252,7 +252,7 @@ public class GroceryStoreSystem {
             System.out.println("4. View all suppliers");
             System.out.println("0. To exit");
             System.out.println("--------------------------------");
-            System.out.println("Enter your choice (1-4) or 0 to exit: ");
+            System.out.print("Enter your choice (1-4) or 0 to exit: ");
             choice=input.nextInt();
             input.nextLine();
             switch(choice) {
@@ -357,7 +357,7 @@ public class GroceryStoreSystem {
                 manageSuppliers();
                 break;
                 case 6:
-                Customer.displayStarOfMonth(orders); // pass your actual orders list
+                Customer.displayStarOfMonth(customers); // pass your actual orders list
                 break;
                 case 7:
                 viewReports();

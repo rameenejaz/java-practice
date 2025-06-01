@@ -43,7 +43,7 @@ public class Category {
     }
     public String toString () {
         System.out.println("--------------------------------------------------------------------------------");
-        return "ID: " + ID + " Name: " +name +" Quantity Ordered: " + quantityOrdered;
+        return "ID: " + ID + " ,Name: " +name +" Quantity Ordered: " + quantityOrdered;
     }
 
 }

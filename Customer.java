@@ -1,5 +1,6 @@
 //files used are Date2, Customer, Item, Order, Category, and Main4
 import java.util.ArrayList;
+import java.util.Scanner;
 public class Customer {
     private int ID;
     private String name;
@@ -7,6 +8,7 @@ public class Customer {
     private String address;
     private String phone;
     private ArrayList<Order> orders;
+    static Scanner input= new Scanner(System.in);
     public Customer() {
         ID=0;
         name="";
@@ -45,26 +47,39 @@ public class Customer {
     //     return totalOrderPrice;
     // }
     //function for the star of the month
-    public static void displayStarOfMonth(ArrayList<Order> orders) {
-        Customer star=null;
-        double max=0;
-         for (Customer c : customers) {
-        double total = 0;
+   public static void displayStarOfMonth(ArrayList<Customer> customers) {
+    System.out.print("Enter the month (as a word, e.g., January): ");
+    String month = input.nextLine().trim().toLowerCase();
+    System.out.print("Enter the year: ");
+    int year = input.nextInt();
+    input.nextLine();
+
+    Customer star = null;
+    double maxTotal = 0;
+
+    for (Customer c : customers) {
+        double totalThisMonth = 0;
         for (Order o : c.getOrders()) {
-            total += o.getTotalPrice();
+            Date2 d = o.getDate();  // make sure Order class has getDate() method
+            if (d.getMonth().trim().toLowerCase().equals(month) && d.getYear() == year) {
+                totalThisMonth += o.getTotalPrice();
+            }
         }
-        if (total > maxTotal) {
-            maxTotal = total;
+        if (totalThisMonth > maxTotal) {
+            maxTotal = totalThisMonth;
             star = c;
         }
     }
-        if (star!=null) {
-            System.out.println("Star of the month: " + star.getName());
-        }
-        else {
-            System.out.println("No orders were placed this month!");
-        }
+
+    if (star != null) {
+        System.out.println("🌟 Star of the month (" + month + " " + year + "): " + star.getName());
+        System.out.println("Total spent: $" + maxTotal);
+    } else {
+        System.out.println("No orders were placed in " + month + " " + year + ".");
     }
+}
+
+
     public Customer(String name, String address, String phone, int ID) {
     this.name = name;
     this.address = address;
