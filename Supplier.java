@@ -1,3 +1,4 @@
+//files used are Category, Date2, Customer, Supplier, Item, Order, Report2, GroceryStoreSystem
 public class Supplier {
     private int ID;
     private String name;
