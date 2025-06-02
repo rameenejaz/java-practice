@@ -1,4 +1,4 @@
-//files used are Date2, Customer, Item, Order, Category, and Main4
+//files used are //Category, Date2, Customer, Supplier, Item, Order, Report2, GroceryStoreSystem
 public class Category {
     private int ID;
     private String name;
