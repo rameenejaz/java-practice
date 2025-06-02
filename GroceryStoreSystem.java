@@ -1,3 +1,4 @@
+//files used are Category, Date2, Customer, Supplier, Item, Order, Report2, GroceryStoreSystem
 import java.util.ArrayList;
 import java.util.Scanner;
 public class GroceryStoreSystem {
@@ -220,10 +221,11 @@ public class GroceryStoreSystem {
         System.out.println("2. View Suppliers");
         System.out.print("Enter choice: ");
         int choice = input.nextInt();
+        input.nextLine();
         switch (choice) {
             case 1:
-                input.nextLine();
-                System.out.print("Enter supplier name: ");
+                // input.nextLine();
+                System.out.print("Enter supplier name: "); //to add a new supplier
                 String name = input.nextLine();
                 System.out.print("Enter city: ");
                 String city = input.nextLine();
@@ -233,7 +235,7 @@ public class GroceryStoreSystem {
                 System.out.println("Supplier added.");
                 break;
             case 2:
-                for (Supplier s : suppliers) {
+                for (Supplier s : suppliers) { //to display the suppliers
                     System.out.println(s);
                 }
                 break;
@@ -259,7 +261,7 @@ public class GroceryStoreSystem {
                 case 1:
                 System.out.print("Enter the day:");
                 int day= input.nextInt();
-                input.nextLine();
+                input.nextLine(); // to consume the leftover line
                 System.out.print("Enter the month (as a word): ");
                 String month= input.nextLine();
                 System.out.print("Enter the year: ");

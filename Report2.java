@@ -1,3 +1,4 @@
+//files used are Category, Date2, Customer, Supplier, Item, Order, Report2, GroceryStoreSystem
 import java.util.ArrayList;
 public class Report2 {
     public static void viewOrdersByDate(ArrayList<Order> orders, Date2 date) {
@@ -22,7 +23,7 @@ public class Report2 {
             }
         }
         if(!found2) {
-            System.out.println("No suupliers found in " + city);
+            System.out.println("No suppliers found in " + city);
         }
     }
 }
