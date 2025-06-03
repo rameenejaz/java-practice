@@ -19,7 +19,7 @@ public class GroceryStoreSystem {
         System.out.println("7. To view Reports");
         System.out.println("0. To exit");
         System.out.println("------------------------------------");
-        System.out.print("Choose one of the following options (1-5) or 0 to exit: ");
+        System.out.print("Choose one of the following options (1-7) or 0 to exit: ");
     }
     public static void manageItems() {
         System.out.println("-------Manage Items-------");
