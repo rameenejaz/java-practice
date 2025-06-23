@@ -9,7 +9,7 @@ public class Book4 {
     public String getTitle() {
         return title;
     }
-    public String author () {
+    public String getAuthor () {
         return author;
     }
     public Book4() {
