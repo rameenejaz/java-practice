@@ -67,5 +67,14 @@ public class SinglyLinkedList2 {
         }
         previous.next=current.next;
     }
-
+    //display content of linked list
+    public void displayContent() {
+        Node2 temp=head;
+        while (temp!=null) {
+            System.err.print(temp.data + "->");
+            temp=temp.next;
+        }
+        System.err.println("NULL");
+    }
+    
 }
