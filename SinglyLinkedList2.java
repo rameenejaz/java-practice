@@ -1,6 +1,7 @@
 public class SinglyLinkedList2 {
     Node2 head;
     Node2 tail;
+    //insert methods
     public void insertAtStart(int value) {
         Node2 newNode=new Node2(value);
         newNode.next=head;
@@ -31,6 +32,28 @@ public class SinglyLinkedList2 {
         temp.data=value;
         previous.next=temp;
         temp.next=current;
+    }
+    //delete methods
+    public void deleteFromStart() {
+        if (head==null) {
+            System.err.println("List is empty!");
+        }
+        else {
+            head=head.next;
+        }
+    }
+    public void deleteFromEnd() {
+        Node2 current;
+        Node2 previous;
+        current=head;
+        while(current.next!=null) {
+            previous=current;
+            current=current.next;
+        }
+        tail=previous;
+        previous.next=null;
+        // delete current;
 
     }
+
 }
