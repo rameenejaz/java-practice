@@ -57,7 +57,15 @@ public class SinglyLinkedList2 {
         previous.next=null;
         tail=previous;
         // delete current;
-
+    }
+    public void deleteFromSpecific(int pos, int value) {
+        Node2 current=head;
+        Node2 previous=null;
+        for (int i=0; i<pos; i++) {
+            previous=current;
+            current=current.next;
+        }
+        previous.next=current.next;
     }
 
 }
