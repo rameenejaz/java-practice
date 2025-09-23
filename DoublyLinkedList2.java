@@ -1,3 +1,5 @@
+//files used are Node2, SinglyLinkedList2, DNode2 and DoublyLinkedList2
+
 public class DoublyLinkedList2 {
         DNode2 head;
         DNode2 tail;
