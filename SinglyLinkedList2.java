@@ -76,5 +76,15 @@ public class SinglyLinkedList2 {
         }
         System.err.println("NULL");
     }
-    
+    public void searchItem(int value) {
+        Node2 temp=head;
+        while(temp!=null) {
+            if (temp.data==value) {
+                System.err.println("Item found: " + value);
+                return;
+            }
+            temp=temp.next;
+        }
+        System.err.println("Item not found!");
+    }
 }
