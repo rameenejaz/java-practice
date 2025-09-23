@@ -5,5 +5,7 @@ public class SinglyLinkedList2 {
         newNode.next=head;
         head=newNode;
     }
-    
+    public void insertAtEnd(int value) {
+       
+    }
 }
