@@ -43,15 +43,19 @@ public class SinglyLinkedList2 {
         }
     }
     public void deleteFromEnd() {
-        Node2 current;
-        Node2 previous;
+        Node2 current=head;
+        Node2 previous=null;
         current=head;
+        if (head==null) {
+           System.err.println("List is empty");
+           return;
+        }
         while(current.next!=null) {
             previous=current;
             current=current.next;
         }
-        tail=previous;
         previous.next=null;
+        tail=previous;
         // delete current;
 
     }
