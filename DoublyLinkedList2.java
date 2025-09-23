@@ -105,10 +105,11 @@ public class DoublyLinkedList2 {
         // to display contents
         public void displayContent() {
             DNode2 temp=head;
-            while (temp!=head) {
+            while (temp!=null) {
             System.out.print(temp.data + "<->");
             temp=temp.next;
         }
+        System.out.print("NULL");
         }
         //to search an item
         public void searchItem(int value) {

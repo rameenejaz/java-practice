@@ -9,10 +9,11 @@ public class SinglyLinkedList2 {
         if (head==null) {
                 head=newNode;
                 tail=newNode;
-                return;
         }
-        newNode.next=head;
-        head=newNode;
+        else {
+            newNode.next=head;
+            head=newNode;
+        }
     }
     public void insertAtEnd(int value) {
         Node2 newNode=new Node2(value);
@@ -25,28 +26,25 @@ public class SinglyLinkedList2 {
           tail=newNode;  
     }
     public void insertAtSpecific(int pos, int value) {
-        Node2 temp=new Node2(value);
-        Node2 previous=null;
-        Node2 current=head;
         if (pos==1) {
             insertAtStart(value);
             return;
         }
-        current=head;
-        for (int i=1; i<pos; i++) {
-            previous=current;
-            current=current.next;
+        Node2 temp=head;
+        for (int i=1; i<pos-1 && temp!=null; i++) {
+            temp=temp.next;
         }
-        if (previous == null) {
-        System.err.println("Invalid position!");
-        return;
-    }
-        temp.data=value;
-        previous.next=temp;
-        temp.next=current;
-        if (current == null) { // inserted at end
-        tail = temp;
-    }
+        if (temp==null) {
+            System.out.println("Position out of range");
+            return;
+        }
+        Node2 newNode=new Node2(value);
+        newNode.next=temp.next;
+        temp.next=newNode;
+        if (newNode.next==null) {
+            tail=newNode;
+        }
+
     }
     //delete methods
     public void deleteFromStart() {
@@ -75,6 +73,8 @@ public class SinglyLinkedList2 {
         while(current.next!=null) {
             previous=current;
             current=current.next;
+            previous.next=null;
+            tail=previous;
         }
         current.next = null;
         tail = current;
@@ -88,7 +88,7 @@ public class SinglyLinkedList2 {
            return;
         }
         if (pos==1) {
-            insertAtStart(value);
+            deleteFromStart();
             return;
         }
         for (int i=1; i<pos && current!=null; i++) {
