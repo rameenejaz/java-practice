@@ -27,6 +27,37 @@ public class Main8 {
                 System.out.println("8. Search ");
                 System.out.println("9. Go Back");
                 System.out.print("Enter choice: ");
+                int option=sc.nextInt();
+                if (option==9) {
+                    break;
+                }
+                int value=0;
+                if (option==1 || option==2 || option==3 || option==8) {
+                    System.out.print("Enter value: ");
+                    value=sc.nextInt();
+                }
+                switch (choice) {
+                    case 1: //for singly linked list 
+                        switch (option) {
+                            case 1:
+                            sll.insertAtStart(value);
+                            break;
+                            case 2:
+                            sll.insertAtEnd(value);
+                            break;
+                            case 3:
+                            System.out.println("Enter Position: ");
+                            int pos1=sc.nextInt();
+                            sll.insertAtSpecific(pos1, value);
+                            case 4: 
+                            sll.deleteFromStart(); 
+                            break;
+                            case 5: 
+                            sll.deleteFromEnd(); 
+                            break;
+                            
+                        }
+                }
             }
         }
     }
