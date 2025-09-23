@@ -55,8 +55,50 @@ public class Main8 {
                             case 5: 
                             sll.deleteFromEnd(); 
                             break;
-                            
+                            case 6:
+                            System.out.print("Enter position: ");
+                            int pos2 = sc.nextInt();
+                            sll.deleteFromSpecific(pos2, value); 
+                            break;
+                            case 7: 
+                            sll.displayContent(); break;
+                            case 8: 
+                            sll.searchItem(value); 
+                            break;
                         }
+                        break;
+                        case 2:
+                        switch (option) {
+                            case 1: 
+                            dll.insertAtStart(value); 
+                            break;
+                            case 2: 
+                            dll.insertAtEnd(value); 
+                            break;
+                            case 3:
+                                System.out.print("Enter position: ");
+                                int pos1 = sc.nextInt();
+                                dll.insertAtSpecific(pos1, value); 
+                                break;
+                            case 4: 
+                            dll.deleteFromStart(); 
+                            break;
+                            case 5: 
+                            dll.deleteFromEnd(); 
+                            break;
+                            case 6:
+                                System.out.print("Enter position: ");
+                                int pos2 = sc.nextInt();
+                                dll.deleteFromSpecific(pos2); 
+                                break;
+                            case 7: 
+                            dll.displayContent(); 
+                            break;
+                            case 8: 
+                            dll.searchItem(value); 
+                            break;
+                    
+                }
                 }
             }
         }
