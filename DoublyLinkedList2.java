@@ -25,4 +25,27 @@ public class DoublyLinkedList2 {
                 tail=newNode;
             }
         }
+        public void insertAtSpecific(int pos, int value) {
+            DNode2 newNode=new DNode2(value);
+            if (pos==1) {
+                insertAtStart(value);
+                return;
+            }
+            DNode2 current=head;
+            for (int i=1; i<(pos-1) && current!=null; i++) {
+                current=current.next;
+            }
+            if (current==null || current.next==null) {
+                insertAtEnd(value);
+            }
+            else {
+                DNode2 nextNode=current.next;
+                current.next=newNode;
+                newNode.previous=current;
+                newNode.next=nextNode;
+                nextNode.previous=newNode;
+            }
+
+        }
+        
 }
