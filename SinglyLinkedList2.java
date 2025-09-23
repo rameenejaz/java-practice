@@ -17,6 +17,7 @@ public class SinglyLinkedList2 {
             }
           newNode.data=value;
           newNode.next=null;
+          tail.next=newNode;
           tail=newNode;  
     }
     public void insertAtSpecific(int pos, int value) {
