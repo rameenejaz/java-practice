@@ -61,7 +61,7 @@ public class DoublyLinkedList2 {
                 head.previous=null;
             }
         }
-        public void deleteFromEnd(int value) {
+        public void deleteFromEnd() {
             if (head==null) {
                 System.out.println("List is empty!");
                 return;
@@ -73,6 +73,31 @@ public class DoublyLinkedList2 {
             else {
                 tail=tail.previous;
                 tail.next=null;
+            }
+        }
+        public void deleteFromSpecific(int pos) {
+            if (head==null) {
+                System.out.println("List is empty!");
+                return;
+            }
+            if (pos==1) {
+                deleteFromStart();
+                return;
+            }
+            DNode2 current=head;
+            for (int i=1; i<pos && current!=null; i++) {
+                current=current.next;
+            }
+            if (current==null) {
+                System.out.println("Invalid Position");
+                return;
+            }
+            if (current.next==null) {
+                deleteFromEnd();
+            }
+            else {
+                current.previous.next=current.next;
+                current.next.previous=current.previous;
             }
         }
 
