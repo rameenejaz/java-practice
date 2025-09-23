@@ -97,10 +97,12 @@ public class Main8 {
                             case 8: 
                             dll.searchItem(value); 
                             break;
-                    
                 }
+                break;
+
                 }
             }
         }
+        sc.close();
     }
 }
