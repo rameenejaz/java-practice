@@ -13,10 +13,10 @@ public class SinglyLinkedList2 {
         Node2 newNode=new Node2(value);
             if (head==null) {
                 head=newNode;
+                tail=newNode;
                 return;
             }
-          newNode.data=value;
-          newNode.next=null;
+          
           tail.next=newNode;
           tail=newNode;  
     }
