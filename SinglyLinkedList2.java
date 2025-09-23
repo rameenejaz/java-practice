@@ -1,3 +1,5 @@
+//methods for singly linked list
+//files used are Node2, SinglyLinkedList2
 public class SinglyLinkedList2 {
     Node2 head;
     Node2 tail;

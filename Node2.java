@@ -1,3 +1,4 @@
+//singly linked list class
 public class Node2 {
     int data;
     Node2 next;
