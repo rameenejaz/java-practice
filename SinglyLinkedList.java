@@ -1,3 +1,5 @@
+//files used are node, dnode, singlylinkedlist,doublylinkedlist and main7
+
 class SinglyLinkedList {
     Node head;
 
@@ -24,7 +26,8 @@ class SinglyLinkedList {
             return;
         }
         Node temp = head;
-        for (int i = 1; i < pos - 1 && temp != null; i++) temp = temp.next;
+        for (int i = 1; i < pos - 1 && temp != null; i++) 
+        temp = temp.next;
         if (temp == null) {
             System.out.println("Position out of range!");
             return;

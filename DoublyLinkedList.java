@@ -1,3 +1,5 @@
+//files used are node, dnode, singlylinkedlist,doublylinkedlist and main7
+
 class DoublyLinkedList {
     DNode head;
 

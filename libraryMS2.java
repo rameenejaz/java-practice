@@ -1,12 +1,12 @@
 import java.util.Scanner;
-public class User {
+public class libraryMS2 {
     private int userID;
     private String name;
-    public User() {
+    public libraryMS2() {
         userID=0;
         name="";
     }
-    public User(int ID, String Name) {
+    public libraryMS2(int ID, String Name) {
         this.userID=ID;
         this.name=Name;
 
