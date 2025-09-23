@@ -47,5 +47,33 @@ public class DoublyLinkedList2 {
             }
 
         }
-        
+        public void deleteFromStart () {
+            if (head==null) {
+                System.out.println("List is empty!");
+                return;
+            }
+            if (head.next==null) {
+                head=null;
+                tail=null;
+            }
+            else {
+                head=head.next;
+                head.previous=null;
+            }
+        }
+        public void deleteFromEnd(int value) {
+            if (head==null) {
+                System.out.println("List is empty!");
+                return;
+            }
+            if (head.next==null) { //only one element
+                head=null;
+                tail=null;
+            }
+            else {
+                tail=tail.previous;
+                tail.next=null;
+            }
+        }
+
 }
