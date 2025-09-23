@@ -100,5 +100,26 @@ public class DoublyLinkedList2 {
                 current.next.previous=current.previous;
             }
         }
+        // to display contents
+        public void displayContent() {
+            DNode2 temp=head;
+            while (temp!=head) {
+            System.out.print(temp.data + "<->");
+            temp=temp.next;
+        }
+        }
+        //to search an item
+        public void searchItem(int value) {
+            DNode2 temp=head;
+            while (temp!=null) {
+                if (temp.data==value) {
+                    System.out.println("Item Found: " +value);
+                    return;
+                }
+                temp=temp.next;
+            }
+            System.out.println("Item not found!");
+        }
+
 
 }
