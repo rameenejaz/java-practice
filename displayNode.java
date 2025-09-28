@@ -32,7 +32,7 @@ public class displayNode {
             return;
         }
         Node3 temp=head;
-        for (int i=0; i<position-1 && temp!=null; i++) {
+        for (int i=1; i<position-1 && temp!=null; i++) {
             temp=temp.next;
         }
         if (temp==null) {
