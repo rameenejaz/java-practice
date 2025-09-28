@@ -13,7 +13,16 @@ public class displayNode {
             temp=temp.next;
         }
         temp.next=newNode;
-        
+    }
+
+    public void insertAtStart(int value) {
+        Node3 newNode=new Node3(value);
+        if (head==null) {
+            head=newNode;
+            return;
+        }
+        newNode.next=head;
+        head=newNode;
     }
     public void display() {
         Node3 temp=head;
@@ -28,9 +37,12 @@ public class displayNode {
        list.insertAtEnd(10);
        list.insertAtEnd(20);
        list.insertAtEnd(30);
-       System.out.print("Linked List:");
+       System.out.print("Original Linked List:");
        list.display();
 
+       list.insertAtStart(5);
+       System.out.print("New Linked List:");
+        list.display();
     }
     
 }
