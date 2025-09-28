@@ -42,6 +42,27 @@ public class displayNode {
         newNode.next=head.next;
         temp.next=newNode;
     }
+    public void deleteByValue(int value) {
+        if (head==null) {
+            System.out.println("List is empty!");
+            return;
+        }
+        if (head.value==value) { //if head is the one to delete
+            head=head.next;
+            return;
+        }
+        Node3 temp=head;
+        while(temp!=null && temp.next.value!=value) {
+            temp=temp.next;
+        }
+        if (temp.next==null) {
+            System.out.println("Value not found");
+        }
+        else {
+            temp.next=temp.next.next;
+
+        }
+    }
     public void display() {
         Node3 temp=head;
         while (temp!=null) {
@@ -63,6 +84,9 @@ public class displayNode {
         list.display();
 
         list.insertAtSpecific(2, 65);
+        list.display();
+
+        list.deleteByValue(20);
         list.display();
     }
     
