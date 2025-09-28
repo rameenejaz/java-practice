@@ -1,4 +1,4 @@
-//files used are node, dnode, singlylinkedlist,doublylinkedlist and main7
+//files used are node, dnode, singlylinkedlist,doublylinkedlist and main8
 
 class DoublyLinkedList {
     DNode head;

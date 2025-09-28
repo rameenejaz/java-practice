@@ -1,3 +1,4 @@
+//files used are node, dnode, singlylinkedlist,doublylinkedlist and main8
 import java.util.Scanner;
 public class Main8 {
     public static void main(String[] args) {
